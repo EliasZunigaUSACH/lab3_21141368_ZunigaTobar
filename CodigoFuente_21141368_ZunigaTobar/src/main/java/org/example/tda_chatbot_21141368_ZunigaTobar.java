@@ -1,3 +1,9 @@
+// PARADIGMAS DE PROGRAMACIÓN LABORATORIO 3
+// Nombre: Elías Zúñiga Tobar
+// RUT: 21.141.368-9
+// Profesor Gonzalo Matrinez
+// TDA CHATBOT
+
 package org.example;
 
 import java.util.ArrayList;

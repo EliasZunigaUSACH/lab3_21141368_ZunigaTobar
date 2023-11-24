@@ -1,5 +1,12 @@
+// PARADIGMAS DE PROGRAMACIÓN LABORATORIO 3
+// Nombre: Elías Zúñiga Tobar
+// RUT: 21.141.368-9
+// Profesor Gonzalo Matrinez
+// TDA SYSTEM
+
 package org.example;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -10,12 +17,34 @@ public class tda_system_21141368_ZunigaTobar {
     String loggedUser;
     int initialChatbotCodeLink;
     List<tda_chatbot_21141368_ZunigaTobar> chatbots;
+    LocalDateTime fechaCreacion;
     public tda_system_21141368_ZunigaTobar(String name, int initialChatbotCodeLink, List<tda_chatbot_21141368_ZunigaTobar> chatbots) {
         this.name = name;
+        this.fechaCreacion = LocalDateTime.now();
         this.users = new ArrayList<User>();
         this.loggedUser = "";
         this.initialChatbotCodeLink = initialChatbotCodeLink;
-        this.chatbots = chatbots;
+        List<tda_chatbot_21141368_ZunigaTobar> chatbotsFiltrados = new ArrayList<>();
+        while (!chatbots.isEmpty()){
+            List<Integer> chatbotsFiltradosIds = getChatbotsIds(chatbotsFiltrados);
+            int chatbotHeadId = chatbots.get(0).getChatbotID();
+            if (!chatbotsFiltradosIds.contains(chatbotHeadId)){
+                chatbotsFiltrados.add(chatbots.get(0));
+            }
+            chatbots.remove(0);
+        }
+        this.chatbots = chatbotsFiltrados;
+    }
+
+    public void systemAddChatbot(tda_chatbot_21141368_ZunigaTobar chatbot){
+        List<Integer> chatbotsIds = getChatbotsIds(chatbots);
+        int chatbotId = chatbot.getChatbotID();
+        if (!chatbotsIds.contains(chatbotId)){
+            chatbots.add(chatbot);
+        }
+    }
+
+    public void systemAddUser(String user){
 
     }
 

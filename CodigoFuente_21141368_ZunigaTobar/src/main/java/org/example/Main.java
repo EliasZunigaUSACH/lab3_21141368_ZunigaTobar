@@ -5,7 +5,7 @@ package org.example;
 public class Main {
     public static void main(String[] args) {
         // Carga de datos
-        tda_system_21141368_ZunigaTobar miSistema =
+        tda_system_21141368_ZunigaTobar miSistema;
         }
     }
 }

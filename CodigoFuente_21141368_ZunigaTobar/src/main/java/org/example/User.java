@@ -1,5 +1,12 @@
+// PARADIGMAS DE PROGRAMACIÓN LABORATORIO 3
+// Nombre: Elías Zúñiga Tobar
+// RUT: 21.141.368-9
+// Profesor Gonzalo Matrinez
+// TDA USER
+
 package org.example;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class User {
@@ -20,6 +27,8 @@ public class User {
     }
 
     public int getUserId(String userName){
-
+        List<Character> nameList = new ArrayList<>();
+        for (int i = 0; i < userName.length(); i++) nameList.add(userName.charAt(i));
+        return (int) nameList.get(5);
     }
 }

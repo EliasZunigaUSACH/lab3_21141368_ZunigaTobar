@@ -1,3 +1,9 @@
+// PARADIGMAS DE PROGRAMACIÓN LABORATORIO 3
+// Nombre: Elías Zúñiga Tobar
+// RUT: 21.141.368-9
+// Profesor Gonzalo Matrinez
+// TDA FLOW
+
 package org.example;
 
 import java.awt.*;
@@ -57,11 +63,11 @@ public class tda_flow_21141368_ZunigaTobar {
     }
 
     public List<Integer> getOptionsIds(List<tda_option_21141368_ZunigaTobar> options){
-        List<Integer> Ids = new ArrayList<>();
+        List<Integer> optionsIds = new ArrayList<>();
         while (!options.isEmpty()) {
-            Ids.add(options.get(0).getOptionId());
+            optionsIds.add(options.get(0).getOptionId());
             options.remove(0);
         }
-        return Ids;
+        return optionsIds;
     }
 }
