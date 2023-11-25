@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class tda_system_21141368_ZunigaTobar {
+public class tda_system_21141368_ZunigaTobar extends User {
     String name;
     List<User> users;
     String loggedUser;
@@ -45,7 +45,29 @@ public class tda_system_21141368_ZunigaTobar {
     }
 
     public void systemAddUser(String user){
+        if (users.isEmpty()){
+            User newUser = new User(user, false);
+            users.add(newUser);
+        } else {
+            int userID = getUserId(user);
+            List<User> members = getUsers();
+            List<Integer> memebersIDs = getUsersIds(members);
+            if (!memebersIDs.contains(userID)){
+                User newUser = new User(user, false);
+                users.add(newUser);
+            }
+        }
+    }
 
+    public void systemLogin(String user){
+        if (!users.isEmpty()){
+            int userID = getUserId(user);
+            List<User> members = getUsers();
+            List<Integer> memebersIDs = getUsersIds(members);
+            if (memebersIDs.contains(userID)){
+                this.loggedUser = user;
+            }
+        }
     }
 
     public void systemLogout(){
@@ -78,5 +100,14 @@ public class tda_system_21141368_ZunigaTobar {
             chatbots.remove(0);
         }
         return chatbotsIds;
+    }
+    public List<Integer> getUsersIds(List<User> members){
+        List<Integer> usersIDs = new ArrayList<>();
+        while (!members.isEmpty()){
+            int userId = getUserId(members.get(0));
+            usersIDs.add(userId);
+            members.remove(0);
+        }
+        return usersIDs;
     }
 }

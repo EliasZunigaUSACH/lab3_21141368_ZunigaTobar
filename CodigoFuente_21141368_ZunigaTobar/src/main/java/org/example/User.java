@@ -11,19 +11,15 @@ import java.util.List;
 
 public class User {
     String name;
-    List<String> historial;
+    boolean isAdmin;
 
-    public User(String name, List<String> historial) {
+    public User(String name, boolean role) {
         this.name = name;
-        this.historial = historial;
+        this.isAdmin = role;
     }
 
     public String getName() {
         return name;
-    }
-
-    public List<String> getHistorial() {
-        return historial;
     }
 
     public int getUserId(String userName){
