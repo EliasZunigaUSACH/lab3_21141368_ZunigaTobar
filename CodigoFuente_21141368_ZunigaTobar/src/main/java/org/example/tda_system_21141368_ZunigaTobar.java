@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class tda_system_21141368_ZunigaTobar extends User {
+public class tda_system_21141368_ZunigaTobar {
     String name;
     List<User> users;
     String loggedUser;

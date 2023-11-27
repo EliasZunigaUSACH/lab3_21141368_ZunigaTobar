@@ -1,0 +1,35 @@
+AUTOEVALUACIÓN
+Laboratorio 3 Paradigmas de programación
+Elías Zúñiga Tobar 21.141.368-9
+Profesor Gonzalo Martinez
+
+Requerimientos No Funcionales:		Puntaje:
+
+Autoevaluación				
+Lenguaje y herramientas de trabajo		
+Verisón 11 de OpenJDK									
+Documentación JavaDoc				
+Organización				
+Instrucciones con el programa
+Uso del paradigma
+Historial				
+Diagrama de análisis
+Diagrama de diseño			
+Prerrequisitos			
+
+Requerimientos Funcionales:		Puntaje:
+
+TDA's					
+option					
+flow					
+flow-add-option				
+chatbot					
+chatbot-add-flow			
+system					
+system-add-chatbot			
+system-add-user				
+system-login				
+system-logout				
+system-talk				
+system-synthesis			
+system-simulate				
