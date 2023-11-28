@@ -9,11 +9,11 @@ package org.example;
 import java.util.ArrayList;
 import java.util.List;
 
-public class User {
+public class tda_user_21141368_ZunigaTobar {
     String name;
     boolean isAdmin;
 
-    public User(String name, boolean role) {
+    public tda_user_21141368_ZunigaTobar(String name, boolean role) {
         this.name = name;
         this.isAdmin = role;
     }

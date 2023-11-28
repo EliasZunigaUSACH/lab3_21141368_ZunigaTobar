@@ -8,20 +8,20 @@ package org.example;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class tda_system_21141368_ZunigaTobar {
     String name;
-    List<User> users;
+    List<tda_user_21141368_ZunigaTobar> users;
     String loggedUser;
     int initialChatbotCodeLink;
     List<tda_chatbot_21141368_ZunigaTobar> chatbots;
     LocalDateTime fechaCreacion;
+    List<String> historial;
     public tda_system_21141368_ZunigaTobar(String name, int initialChatbotCodeLink, List<tda_chatbot_21141368_ZunigaTobar> chatbots) {
         this.name = name;
         this.fechaCreacion = LocalDateTime.now();
-        this.users = new ArrayList<User>();
+        this.users = new ArrayList<tda_user_21141368_ZunigaTobar>();
         this.loggedUser = "";
         this.initialChatbotCodeLink = initialChatbotCodeLink;
         List<tda_chatbot_21141368_ZunigaTobar> chatbotsFiltrados = new ArrayList<>();
@@ -46,14 +46,14 @@ public class tda_system_21141368_ZunigaTobar {
 
     public void systemAddUser(String user){
         if (users.isEmpty()){
-            User newUser = new User(user, false);
+            tda_user_21141368_ZunigaTobar newUser = new tda_user_21141368_ZunigaTobar(user, false);
             users.add(newUser);
         } else {
             int userID = getUserId(user);
-            List<User> members = getUsers();
+            List<tda_user_21141368_ZunigaTobar> members = getUsers();
             List<Integer> memebersIDs = getUsersIds(members);
             if (!memebersIDs.contains(userID)){
-                User newUser = new User(user, false);
+                tda_user_21141368_ZunigaTobar newUser = new tda_user_21141368_ZunigaTobar(user, false);
                 users.add(newUser);
             }
         }
@@ -62,7 +62,7 @@ public class tda_system_21141368_ZunigaTobar {
     public void systemLogin(String user){
         if (!users.isEmpty()){
             int userID = getUserId(user);
-            List<User> members = getUsers();
+            List<tda_user_21141368_ZunigaTobar> members = getUsers();
             List<Integer> memebersIDs = getUsersIds(members);
             if (memebersIDs.contains(userID)){
                 this.loggedUser = user;
@@ -78,7 +78,7 @@ public class tda_system_21141368_ZunigaTobar {
         return name;
     }
 
-    public List<User> getUsers() {
+    public List<tda_user_21141368_ZunigaTobar> getUsers() {
         return users;
     }
 
@@ -101,7 +101,7 @@ public class tda_system_21141368_ZunigaTobar {
         }
         return chatbotsIds;
     }
-    public List<Integer> getUsersIds(List<User> members){
+    public List<Integer> getUsersIds(List<tda_user_21141368_ZunigaTobar> members){
         List<Integer> usersIDs = new ArrayList<>();
         while (!members.isEmpty()){
             int userId = getUserId(members.get(0));
