@@ -1,16 +1,22 @@
+// PARADIGMAS DE PROGRAMACIÓN LABORATORIO 3
+// Nombre: Elías Zúñiga Tobar
+// RUT: 21.141.368-9
+// Profesor Gonzalo Matrinez
+// TDA OPTION
+
 package org.example;
 
 import java.util.List;
 
-public class tda_option_21141368_ZunigaTobar {
-    int id;
+public class option_21141368_ZunigaTobar {
+    int OptionId;
     String message;
     int chatbotCodeLink;
     int initialFlowCodeLink;
     List<String> keywords;
 
-    public tda_option_21141368_ZunigaTobar(int id, String message, int chatbotCodeLink, int initialFlowCodeLink, List<String> keywords){
-        this.id = id;
+    public option_21141368_ZunigaTobar(int OptionId, String message, int chatbotCodeLink, int initialFlowCodeLink, List<String> keywords){
+        this.OptionId = OptionId;
         this.message = message;
         this.chatbotCodeLink = chatbotCodeLink;
         this.initialFlowCodeLink = initialFlowCodeLink;
@@ -18,11 +24,11 @@ public class tda_option_21141368_ZunigaTobar {
     }
 
     public int getOptionId() {
-        return id;
+        return OptionId;
     }
 
     public void setOptionId(int id) {
-        this.id = id;
+        this.OptionId = id;
     }
 
     public String getMessage() {

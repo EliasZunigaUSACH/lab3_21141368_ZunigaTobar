@@ -6,19 +6,18 @@
 
 package org.example;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class tda_flow_21141368_ZunigaTobar {
-    int id;
+public class flow_21141368_ZunigaTobar {
+    int flowId;
     String nameMsg;
-    List<tda_option_21141368_ZunigaTobar> options;
+    List<option_21141368_ZunigaTobar> options;
 
-    public tda_flow_21141368_ZunigaTobar(int ID, String Name, List<tda_option_21141368_ZunigaTobar> options){
-        this.id = ID;
+    public flow_21141368_ZunigaTobar(int ID, String Name, List<option_21141368_ZunigaTobar> options){
+        this.flowId = ID;
         this.nameMsg = Name;
-        List<tda_option_21141368_ZunigaTobar> optionsFiltrados = new ArrayList<>();
+        List<option_21141368_ZunigaTobar> optionsFiltrados = new ArrayList<>();
         while (!options.isEmpty()){
             List<Integer> optionsFiltradosIds = getOptionsIds(optionsFiltrados);
             int optionHeadId = options.get(0).getOptionId();
@@ -30,7 +29,7 @@ public class tda_flow_21141368_ZunigaTobar {
         this.options = optionsFiltrados;
     }
 
-    public void flowAddOption(tda_option_21141368_ZunigaTobar option){
+    public void flowAddOption(option_21141368_ZunigaTobar option){
         List<Integer> IDs = getOptionsIds(options);
         int optionId = option.getOptionId();
         if (!IDs.contains(optionId)) {
@@ -39,11 +38,11 @@ public class tda_flow_21141368_ZunigaTobar {
     }
 
     public int getFlowId() {
-        return id;
+        return flowId;
     }
 
     public void setFlowId(int id) {
-        this.id = id;
+        this.flowId = id;
     }
 
     public String getNameMsg() {
@@ -54,19 +53,22 @@ public class tda_flow_21141368_ZunigaTobar {
         this.nameMsg = nameMsg;
     }
 
-    public List<tda_option_21141368_ZunigaTobar> getOptions() {
+    public List<option_21141368_ZunigaTobar> getOptions() {
         return options;
     }
 
-    public void setOptions(List<tda_option_21141368_ZunigaTobar> options) {
+    public void setOptions(List<option_21141368_ZunigaTobar> options) {
         this.options = options;
     }
 
-    public List<Integer> getOptionsIds(List<tda_option_21141368_ZunigaTobar> options){
+    public List<Integer> getOptionsIds(List<option_21141368_ZunigaTobar> options){
         List<Integer> optionsIds = new ArrayList<>();
-        while (!options.isEmpty()) {
-            optionsIds.add(options.get(0).getOptionId());
-            options.remove(0);
+//        while (!options.isEmpty()) {
+//            optionsIds.add(options.get(0).getOptionId());
+//           options.remove(0);
+//        }
+        for (option_21141368_ZunigaTobar op : options){
+            optionsIds.add(op.getOptionId());
         }
         return optionsIds;
     }

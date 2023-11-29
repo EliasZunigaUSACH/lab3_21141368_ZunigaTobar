@@ -9,19 +9,19 @@ package org.example;
 import java.util.ArrayList;
 import java.util.List;
 
-public class tda_chatbot_21141368_ZunigaTobar {
+public class chatbot_21141368_ZunigaTobar {
     int chatbotID;
     String name;
     String welcomeMessage;
     int startFlowId;
-    List<tda_flow_21141368_ZunigaTobar> flows;
+    List<flow_21141368_ZunigaTobar> flows;
 
-    public tda_chatbot_21141368_ZunigaTobar(int chatbotID, String name, String welcomeMessage, int startFlowId, List<tda_flow_21141368_ZunigaTobar> flows) {
+    public chatbot_21141368_ZunigaTobar(int chatbotID, String name, String welcomeMessage, int startFlowId, List<flow_21141368_ZunigaTobar> flows) {
         this.chatbotID = chatbotID;
         this.name = name;
         this.welcomeMessage = welcomeMessage;
         this.startFlowId = startFlowId;
-        List<tda_flow_21141368_ZunigaTobar> flowsFiltrados = new ArrayList<>();
+        List<flow_21141368_ZunigaTobar> flowsFiltrados = new ArrayList<>();
         while(!flows.isEmpty()){
             List<Integer> flowsFiltradosIds = getFlowsIds(flowsFiltrados);
             int flowHeadId = flows.get(0).getFlowId();
@@ -33,7 +33,7 @@ public class tda_chatbot_21141368_ZunigaTobar {
         this.flows = flowsFiltrados;
     }
 
-    public void chatbotAddFlow(tda_flow_21141368_ZunigaTobar flow){
+    public void chatbotAddFlow(flow_21141368_ZunigaTobar flow){
         List<Integer> IDs = getFlowsIds(flows);
         int optionId = flow.getFlowId();
         if (!IDs.contains(optionId)) {
@@ -73,19 +73,22 @@ public class tda_chatbot_21141368_ZunigaTobar {
         this.startFlowId = startFlowId;
     }
 
-    public List<tda_flow_21141368_ZunigaTobar> getFlows() {
+    public List<flow_21141368_ZunigaTobar> getFlows() {
         return flows;
     }
 
-    public void setFlows(List<tda_flow_21141368_ZunigaTobar> flows) {
+    public void setFlows(List<flow_21141368_ZunigaTobar> flows) {
         this.flows = flows;
     }
 
-    public List<Integer> getFlowsIds(List<tda_flow_21141368_ZunigaTobar> flows){
+    public List<Integer> getFlowsIds(List<flow_21141368_ZunigaTobar> flows){
         List<Integer> Ids = new ArrayList<>();
-        while (!flows.isEmpty()) {
-            Ids.add(flows.get(0).getFlowId());
-            flows.remove(0);
+//        while (!flows.isEmpty()) {
+//            Ids.add(flows.get(0).getFlowId());
+//            flows.remove(0);
+//        }
+        for (flow_21141368_ZunigaTobar f : flows){
+            Ids.add(f.getFlowId());
         }
         return Ids;
     }
