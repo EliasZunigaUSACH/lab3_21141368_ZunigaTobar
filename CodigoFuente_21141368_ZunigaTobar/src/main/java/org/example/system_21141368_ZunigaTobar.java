@@ -19,6 +19,7 @@ public class system_21141368_ZunigaTobar {
     List<chatbot_21141368_ZunigaTobar> chatbots;
     LocalDateTime fechaCreacion;
     List<String> historial;
+
     public system_21141368_ZunigaTobar(String name, int initialChatbotCodeLink, List<chatbot_21141368_ZunigaTobar> chatbots) {
         this.name = name;
         this.fechaCreacion = LocalDateTime.now();
@@ -45,16 +46,14 @@ public class system_21141368_ZunigaTobar {
         }
     }
 
-    public void systemAddUser(String user){
+    public void systemAddUser(user_21141368_ZunigaTobar newUser){
         if (users.isEmpty()){
-            user_21141368_ZunigaTobar newUser = new user_21141368_ZunigaTobar(user, false);
             this.users.add(newUser);
         } else {
-            int userID = getUserId(user);
+            int userID = getUserId(newUser.getUserName());
             List<user_21141368_ZunigaTobar> members = getUsers();
             List<Integer> memebersIDs = getUsersIds(members);
             if (!memebersIDs.contains(userID)){
-                user_21141368_ZunigaTobar newUser = new user_21141368_ZunigaTobar(user, false);
                 users.add(newUser);
             }
         }
