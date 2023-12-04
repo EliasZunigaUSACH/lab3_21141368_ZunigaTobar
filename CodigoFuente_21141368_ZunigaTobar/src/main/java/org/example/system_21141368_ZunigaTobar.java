@@ -54,7 +54,7 @@ public class system_21141368_ZunigaTobar {
             List<user_21141368_ZunigaTobar> members = getUsers();
             List<Integer> memebersIDs = getUsersIds(members);
             if (!memebersIDs.contains(userID)){
-                users.add(newUser);
+                this.users.add(newUser);
             }
         }
     }

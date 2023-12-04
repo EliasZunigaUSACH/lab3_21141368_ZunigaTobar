@@ -1,12 +1,11 @@
 package org.example;
 
+import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 public class Main {
-    public static void tda_system_21141368_ZunigaTobar(String[] args) {
+    public static void system_21141368_ZunigaTobar() {
         // Carga de datos
         List<String> wordsO1 = new ArrayList<>();
         wordsO1.add("viajar");
@@ -28,7 +27,77 @@ public class Main {
         List<chatbot_21141368_ZunigaTobar> chatbotsSystem = new ArrayList<>();
         chatbotsSystem.add(CB0);
         system_21141368_ZunigaTobar miSistema = new system_21141368_ZunigaTobar("Chatbots Paradigmas", 0, chatbotsSystem);
+    }
+    public static void main(String[] args) {
 
-        }
+        Scanner input = new Scanner(System.in);
+        final int MENU_EXIT_OPTION = 3;
+
+        int choice;
+
+        do {
+            printMenu();
+            choice = input.nextInt();
+
+            switch (choice) {
+
+                case 1:
+                    printLogin();
+
+                    break;
+
+                case 2:
+                    Scanner userType = new Scanner(System.in);
+                    int role;
+                    printRegisterMenu();
+                    role = userType.nextInt();
+                    switch (role){
+                        Scanner name = new Scanner(System.in);
+                        String userName;
+                        user_21141368_ZunigaTobar newUser;
+                        case 1:
+                            System.out.println("### Sistema de Chatbots - Registro Usuario Normal ###\n");
+                            System.out.print("INTRODUZCA NOMBRE DEL USUARIO NORMAL:\n");
+                            userName = name.nextLine();
+                            newUser = new user_21141368_ZunigaTobar(userName, false);
+
+                        case 2:
+                            System.out.println("### Sistema de Chatbots - Registro Usuario Administrador ###\n");
+                            System.out.print("INTRODUZCA NOMBRE DEL USUARIO ADMINISTRADOR:\n");
+                            userName = name.nextLine();
+                            newUser = new user_21141368_ZunigaTobar(userName, true);
+
+                    }
+
+
+                    break;
+
+                case 3:
+                    System.out.println("Cerrando...");
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println(choice + " no es una opción valida! Por favor seleccione la opción correcta.");
+
+            }
+        } while (choice != MENU_EXIT_OPTION);
+    }
+
+    private static void printMenu() {
+        System.out.println("### Sistema de Chatbots - Inicio ###\n");
+        System.out.print("1. Login de Usuario\n");
+        System.out.print("2. Registro de Usuario\n");
+        System.out.print("3. Salir\n");
+        System.out.print("INTRODUZCA SU OPCIÓN:\n");
+    }
+    public static void printLogin() {
+        System.out.println("### Sistema de Chatbots - Login ###\n");
+        System.out.print("INTRODUZCA NOMBRE DE USUARIO:\n");
+    }
+    public static void printRegisterMenu() {
+        System.out.println("### Sistema de Chatbots - Registro ###\n");
+        System.out.print("1. Registrar usuario normal\n");
+        System.out.print("2. Registrar usuario administrador\n");
+        System.out.print("INTRODUZCA SU OPCIÓN:\n");
     }
 }
