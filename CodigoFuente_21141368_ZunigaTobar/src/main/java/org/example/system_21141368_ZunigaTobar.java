@@ -8,12 +8,13 @@ package org.example;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+
+import static org.example.user_21141368_ZunigaTobar.getUserId;
 
 public class system_21141368_ZunigaTobar {
     String name;
-    List<user_21141368_ZunigaTobar> users;
+    List<user_21141368_ZunigaTobar> members;
     String loggedUser;
     int initialChatbotCodeLink;
     List<chatbot_21141368_ZunigaTobar> chatbots;
@@ -23,7 +24,7 @@ public class system_21141368_ZunigaTobar {
     public system_21141368_ZunigaTobar(String name, int initialChatbotCodeLink, List<chatbot_21141368_ZunigaTobar> chatbots) {
         this.name = name;
         this.fechaCreacion = LocalDateTime.now();
-        this.users = new ArrayList<user_21141368_ZunigaTobar>();
+        this.members = new ArrayList<user_21141368_ZunigaTobar>();
         this.loggedUser = "";
         this.initialChatbotCodeLink = initialChatbotCodeLink;
         List<chatbot_21141368_ZunigaTobar> chatbotsFiltrados = new ArrayList<>();
@@ -47,26 +48,28 @@ public class system_21141368_ZunigaTobar {
     }
 
     public void systemAddUser(user_21141368_ZunigaTobar newUser){
-        if (users.isEmpty()){
-            this.users.add(newUser);
+        if (members.isEmpty()){
+            this.members.add(newUser);
         } else {
             int userID = getUserId(newUser.getUserName());
-            List<user_21141368_ZunigaTobar> members = getUsers();
-            List<Integer> memebersIDs = getUsersIds(members);
+            List<Integer> memebersIDs = getUsersIds();
             if (!memebersIDs.contains(userID)){
-                this.users.add(newUser);
+                this.members.add(newUser);
             }
         }
     }
 
-    public void systemLogin(String user){
-        if (!users.isEmpty()){
-            int userID = getUserId(user);
-            List<user_21141368_ZunigaTobar> members = getUsers();
-            List<Integer> memebersIDs = getUsersIds(members);
-            if (memebersIDs.contains(userID)){
-                this.loggedUser = user;
+    public void systemLogin(String userName){
+        int userID = getUserId(userName);
+        List<user_21141368_ZunigaTobar> members = getMembers();
+        if (!members.isEmpty()){
+            List<Integer> membersIDs = getUsersIds();
+            if (membersIDs.contains(userID)){
+                systemLogin(userName);
+                System.out.println("El usuario " + userName + " ha iniciado sesión correctamente");
             }
+        } else {
+            System.out.println("No hay ningún usuario registrado en el sistema");
         }
     }
 
@@ -78,8 +81,8 @@ public class system_21141368_ZunigaTobar {
         return name;
     }
 
-    public List<user_21141368_ZunigaTobar> getUsers() {
-        return users;
+    public List<user_21141368_ZunigaTobar> getMembers() {
+        return members;
     }
 
     public String getLoggedUser() {
@@ -90,6 +93,15 @@ public class system_21141368_ZunigaTobar {
         return initialChatbotCodeLink;
     }
 
+    public user_21141368_ZunigaTobar getLoggedUserData(String userName){
+        List<user_21141368_ZunigaTobar> members = getMembers();
+        for (user_21141368_ZunigaTobar user : members){
+            if (user.getUserName().equals(userName)){
+                return user;
+            }
+        }
+        return null;
+    }
     public List<chatbot_21141368_ZunigaTobar> getChatbots() {
         return chatbots;
     }
@@ -104,7 +116,8 @@ public class system_21141368_ZunigaTobar {
         }
         return chatbotsIds;
     }
-    public List<Integer> getUsersIds(List<user_21141368_ZunigaTobar> members){
+    public List<Integer> getUsersIds(){
+        List<user_21141368_ZunigaTobar> members = getMembers();
         List<Integer> usersIDs = new ArrayList<>();
 //        while (!members.isEmpty()){
 //            int userId = getUserId(members.get(0));
@@ -115,29 +128,6 @@ public class system_21141368_ZunigaTobar {
             usersIDs.add(getUserId(user.getUserName()));
         }
         return usersIDs;
-    }
-    public static boolean isNumeric(String strNum) {
-        if (strNum == null) {
-            return false;
-        }
-        try {
-            double d = Double.parseDouble(strNum);
-        } catch (NumberFormatException nfe) {
-            return false;
-        }
-        return true;
-    }
-    public int getUserId(String userName){
-        List<String> nameList = new ArrayList<>(Collections.singletonList(userName));
-//        for (int i : largo) nameList.add(userName.charAt(i));
-//        return (int) nameList.get(5);
-        String userID = "";
-        for(String i : nameList){
-            if (isNumeric(i)){
-                userID = userID + i;
-            }
-        }
-        return Integer.parseInt(userID);
     }
 
 }

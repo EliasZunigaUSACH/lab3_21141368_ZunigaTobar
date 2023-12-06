@@ -15,6 +15,15 @@ public class option_21141368_ZunigaTobar {
     int initialFlowCodeLink;
     List<String> keywords;
 
+    /**
+     * Método: option_21141368_ZunigaTobar
+     * Descripción: Método constructor de una opción para flujo de un chatbot. Cada opción se enlaza a un chatbot y flujo especificados por sus respectivos códigos.
+     * @param OptionId
+     * @param message
+     * @param chatbotCodeLink
+     * @param initialFlowCodeLink
+     * @param keywords
+     */
     public option_21141368_ZunigaTobar(int OptionId, String message, int chatbotCodeLink, int initialFlowCodeLink, List<String> keywords){
         this.OptionId = OptionId;
         this.message = message;
@@ -22,11 +31,9 @@ public class option_21141368_ZunigaTobar {
         this.initialFlowCodeLink = initialFlowCodeLink;
         this.keywords = keywords;
     }
-
     public int getOptionId() {
         return OptionId;
     }
-
     public void setOptionId(int id) {
         this.OptionId = id;
     }

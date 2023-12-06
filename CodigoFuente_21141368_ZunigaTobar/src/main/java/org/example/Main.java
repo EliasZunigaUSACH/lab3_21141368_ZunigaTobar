@@ -40,12 +40,17 @@ public class Main {
             switch (choice) {
 
                 case 1:
-                    printLogin();
+                    loginMenu(miSistema);
+                    user_21141368_ZunigaTobar user = miSistema.getLoggedUserData(miSistema.getLoggedUser());
+                    if (user.isAdmin()) {
+                        adminMenu(miSistema);
+                    } else {
 
+                    }
                     break;
 
                 case 2:
-                    registerMenu();
+                    registerMenu(miSistema);
                     break;
 
                 case 3:
@@ -54,7 +59,6 @@ public class Main {
                     break;
                 default:
                     System.out.println(choice + " no es una opción valida! Por favor seleccione la opción correcta.");
-
             }
         } while (choice != MENU_EXIT_OPTION);
     }
@@ -70,10 +74,45 @@ public class Main {
         System.out.println("### Sistema de Chatbots - Login ###\n");
         System.out.print("INTRODUZCA NOMBRE DE USUARIO:\n");
     }
-    public static void loginMenu(String[] args, system_21141368_ZunigaTobar system){
-        Scanner
-        String userName;
+    public static void printAdminMenu(system_21141368_ZunigaTobar system){
+        System.out.println("### Sistema de Chatbots - Usuario Administrador ###\n");
+        System.out.print("Bienvenido " + system.getLoggedUser() + " usted es administrador.\n");
+        System.out.print("1. Crear un Chatbot\n");
+        System.out.print("2. Modificar un Chatbot\n");
+        System.out.print("3. Ejecutar un Chatbot\n");
+        System.out.print("4. Visualizar todos los chatbots existentes en el sistema\n");
+        System.out.print("5. Visualizar todos los chatbots con sus flujos y opciones creadas\n");
+        System.out.print("6. Ejecutar una simulación del sistema de chatbot\n");
+        System.out.print("7. Salir\n");
+        System.out.print("INTRODUZCA SU OPCIÓN:\n");
+    }
+    public static void adminMenu(system_21141368_ZunigaTobar system){
+        printAdminMenu(system);
+        Scanner input = new Scanner(System.in);
+        int selection = input.nextInt();
+        switch(selection){
+            case 1:
 
+            case 2:
+
+            case 3:
+
+            case 4:
+
+            case 5:
+
+            case 6:
+
+            case 7:
+                break;
+        }
+
+    }
+    public static void loginMenu(system_21141368_ZunigaTobar system){
+        printLogin();
+        Scanner input = new Scanner(System.in);
+        String userName = input.nextLine();
+        system.systemLogin(userName.toLowerCase());
     }
 
     public static void printRegisterMenu() {
@@ -82,27 +121,30 @@ public class Main {
         System.out.print("2. Registrar usuario administrador\n");
         System.out.print("INTRODUZCA SU OPCIÓN:\n");
     }
-    public static void registerMenu(String[] args, system_21141368_ZunigaTobar system){
+    public static void registerMenu(system_21141368_ZunigaTobar system){
         Scanner input = new Scanner(System.in);
         int role;
         printRegisterMenu();
         role = input.nextInt();
+        Scanner name = new Scanner(System.in);
+        String userName;
+        user_21141368_ZunigaTobar newUser;
         switch (role){
-            input = new Scanner(System.in);
-            String userName;
-            user_21141368_ZunigaTobar newUser;
             case 1:
                 System.out.println("### Sistema de Chatbots - Registro Usuario Normal ###\n");
                 System.out.print("INTRODUZCA NOMBRE DEL USUARIO NORMAL:\n");
-                userName = input.nextLine();
-                newUser = new user_21141368_ZunigaTobar(userName, false);
+                userName = name.nextLine();
+                newUser = new user_21141368_ZunigaTobar(userName.toLowerCase(), false);
                 system.systemAddUser(newUser);
+                System.out.print("Se ha registrado el usuario " + userName.toLowerCase() + " como usuario normal");
+                break;
             case 2:
                 System.out.println("### Sistema de Chatbots - Registro Usuario Administrador ###\n");
                 System.out.print("INTRODUZCA NOMBRE DEL USUARIO ADMINISTRADOR:\n");
-                userName = input.nextLine();
-                newUser = new user_21141368_ZunigaTobar(userName, true);
+                userName = name.nextLine();
+                newUser = new user_21141368_ZunigaTobar(userName.toLowerCase(), true);
                 system.systemAddUser(newUser);
+                System.out.print("Se ha registrado el usuario " + userName.toLowerCase() + " como usuario administrador");
                 break;
             default:
                 System.out.println(role + " no es una opción valida! Por favor seleccione la opción correcta.");
