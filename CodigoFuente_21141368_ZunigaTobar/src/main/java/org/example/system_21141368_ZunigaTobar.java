@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.example.user_21141368_ZunigaTobar.getUserId;
+import static org.example.user_21141368_ZunigaTobar.getNumberByName;
 
 public class system_21141368_ZunigaTobar {
     String name;
@@ -51,25 +51,25 @@ public class system_21141368_ZunigaTobar {
         if (members.isEmpty()){
             this.members.add(newUser);
         } else {
-            int userID = getUserId(newUser.getUserName());
+            int userID = newUser.getID();
             List<Integer> memebersIDs = getUsersIds();
             if (!memebersIDs.contains(userID)){
                 this.members.add(newUser);
+                System.out.println("Se ha registrado " + newUser.getUserName() + "\n");
+            } else {
+                System.out.println("El usuario ya está registrado en el sistema");
             }
         }
     }
 
     public void systemLogin(String userName){
-        int userID = getUserId(userName);
-        List<user_21141368_ZunigaTobar> members = getMembers();
-        if (!members.isEmpty()){
-            List<Integer> membersIDs = getUsersIds();
-            if (membersIDs.contains(userID)){
-                systemLogin(userName);
-                System.out.println("El usuario " + userName + " ha iniciado sesión correctamente");
-            }
+        int userID = getNumberByName(userName);
+        List<Integer> membersIDs = getUsersIds();
+        if (membersIDs.contains(userID)){
+            this.loggedUser = userName;
+            System.out.println("El usuario " + userName + " ha iniciado sesión correctamente");
         } else {
-            System.out.println("No hay ningún usuario registrado en el sistema");
+            System.out.println("El usuario no está registrado en el sistema");
         }
     }
 
@@ -125,7 +125,7 @@ public class system_21141368_ZunigaTobar {
 //            members.remove(0);
 //        }
         for (user_21141368_ZunigaTobar user : members){
-            usersIDs.add(getUserId(user.getUserName()));
+            usersIDs.add(user.getID());
         }
         return usersIDs;
     }
