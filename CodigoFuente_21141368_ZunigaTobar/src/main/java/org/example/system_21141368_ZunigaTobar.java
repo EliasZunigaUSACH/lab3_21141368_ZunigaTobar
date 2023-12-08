@@ -19,12 +19,13 @@ public class system_21141368_ZunigaTobar {
     int initialChatbotCodeLink;
     List<chatbot_21141368_ZunigaTobar> chatbots;
     LocalDateTime fechaCreacion;
-    List<String> historial;
+    int []posicion;
+    List<String> localHistory;
 
     public system_21141368_ZunigaTobar(String name, int initialChatbotCodeLink, List<chatbot_21141368_ZunigaTobar> chatbots) {
         this.name = name;
         this.fechaCreacion = LocalDateTime.now();
-        this.members = new ArrayList<user_21141368_ZunigaTobar>();
+        this.members = new ArrayList<>();
         this.loggedUser = "";
         this.initialChatbotCodeLink = initialChatbotCodeLink;
         List<chatbot_21141368_ZunigaTobar> chatbotsFiltrados = new ArrayList<>();
@@ -37,6 +38,8 @@ public class system_21141368_ZunigaTobar {
             chatbots.remove(0);
         }
         this.chatbots = chatbotsFiltrados;
+        this.posicion = new int[]{0, 1};
+        this.localHistory = new ArrayList<>();
     }
 
     public void systemAddChatbot(chatbot_21141368_ZunigaTobar chatbot){
@@ -67,6 +70,7 @@ public class system_21141368_ZunigaTobar {
         List<Integer> membersIDs = getUsersIds();
         if (membersIDs.contains(userID)){
             this.loggedUser = userName;
+//            loadUserHistory(userName);
             System.out.println("El usuario " + userName + " ha iniciado sesión correctamente");
         } else {
             System.out.println("El usuario no está registrado en el sistema");
@@ -74,7 +78,10 @@ public class system_21141368_ZunigaTobar {
     }
 
     public void systemLogout(){
-        this.loggedUser = "";
+        if (!loggedUser.isEmpty()) {
+//            saveUserHistory(getLoggedUser());
+            this.loggedUser = "";
+        }
     }
 
     public String getName() {
@@ -93,6 +100,42 @@ public class system_21141368_ZunigaTobar {
         return initialChatbotCodeLink;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setMembers(List<user_21141368_ZunigaTobar> members) {
+        this.members = members;
+    }
+
+    public void setLoggedUser(String loggedUser) {
+        this.loggedUser = loggedUser;
+    }
+
+    public void setInitialChatbotCodeLink(int initialChatbotCodeLink) {
+        this.initialChatbotCodeLink = initialChatbotCodeLink;
+    }
+
+    public void setChatbots(List<chatbot_21141368_ZunigaTobar> chatbots) {
+        this.chatbots = chatbots;
+    }
+
+    public LocalDateTime getFechaCreacion() {
+        return fechaCreacion;
+    }
+
+    public void setFechaCreacion(LocalDateTime fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
+    }
+
+    public int[] getPosicion() {
+        return posicion;
+    }
+
+    public void setPosicion(int[] posicion) {
+        this.posicion = posicion;
+    }
+
     public user_21141368_ZunigaTobar getLoggedUserData(String userName){
         List<user_21141368_ZunigaTobar> members = getMembers();
         for (user_21141368_ZunigaTobar user : members){
@@ -107,10 +150,6 @@ public class system_21141368_ZunigaTobar {
     }
     public List<Integer> getChatbotsIds(List<chatbot_21141368_ZunigaTobar> chatbots){
         List<Integer> chatbotsIds = new ArrayList<>();
-//        while (!chatbots.isEmpty()){
-//            chatbotsIds.add(chatbots.get(0).getChatbotID());
-//            chatbots.remove(0);
-//        }
         for (chatbot_21141368_ZunigaTobar ch : chatbots){
             chatbotsIds.add(ch.getChatbotID());
         }
@@ -119,15 +158,51 @@ public class system_21141368_ZunigaTobar {
     public List<Integer> getUsersIds(){
         List<user_21141368_ZunigaTobar> members = getMembers();
         List<Integer> usersIDs = new ArrayList<>();
-//        while (!members.isEmpty()){
-//            int userId = getUserId(members.get(0));
-//            usersIDs.add(userId);
-//            members.remove(0);
-//        }
         for (user_21141368_ZunigaTobar user : members){
             usersIDs.add(user.getID());
         }
         return usersIDs;
     }
-
+    public void systemTalk(String msg){
+        if (!getLoggedUser().isBlank()){
+/*            int []actual = getPosicion();
+            for (chatbot_21141368_ZunigaTobar chatbot : getChatbots()){
+                if (chatbot.getChatbotID() == actual[0]) {
+                    for (flow_21141368_ZunigaTobar flow : chatbot.getFlows()){
+                        if (flow.getFlowId() == actual[1]) {
+                            for (option_21141368_ZunigaTobar opcion : flow.getOptions()){
+                                int numMsg = Integer.parseInt(msg);
+                                if ((numMsg == opcion.getOptionId()) || (opcion.getKeywords().contains(msg.toLowerCase()))){
+                                    setPosicion(new int[]{opcion.getChatbotCodeLink(), opcion.getInitialFlowCodeLink()});
+                                    localHistory.add(msg);
+                                }
+                            }
+                        }
+                    }
+                }
+            } */
+        } else {
+            System.out.println("Aún no se ha iniciado sesión");
+        }
+    }
+/*    public void loadUserHistory(String userName) {
+        List<user_21141368_ZunigaTobar> members = getMembers();
+        for (user_21141368_ZunigaTobar user : members){
+            if (user.getUserName().equals(userName)){
+                localHistory = user.getHistorial();
+            }
+        }
+    }
+    public void saveUserHistory(String userName){
+        List<user_21141368_ZunigaTobar> members = getMembers();
+        for (user_21141368_ZunigaTobar user : members){
+            if (user.getUserName().equals(userName)){
+                user.setHistorial(localHistory);
+            }
+        }
+    } */
+    public void systemSynthesis(String userName){
+        user_21141368_ZunigaTobar user = getLoggedUserData(userName);
+        System.out.println(userName + );
+    }
 }

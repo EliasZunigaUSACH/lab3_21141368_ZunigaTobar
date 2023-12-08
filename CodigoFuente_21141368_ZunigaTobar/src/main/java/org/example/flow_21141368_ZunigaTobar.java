@@ -63,10 +63,6 @@ public class flow_21141368_ZunigaTobar {
 
     public List<Integer> getOptionsIds(List<option_21141368_ZunigaTobar> options){
         List<Integer> optionsIds = new ArrayList<>();
-//        while (!options.isEmpty()) {
-//            optionsIds.add(options.get(0).getOptionId());
-//           options.remove(0);
-//        }
         for (option_21141368_ZunigaTobar op : options){
             optionsIds.add(op.getOptionId());
         }

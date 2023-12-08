@@ -83,10 +83,6 @@ public class chatbot_21141368_ZunigaTobar {
 
     public List<Integer> getFlowsIds(List<flow_21141368_ZunigaTobar> flows){
         List<Integer> Ids = new ArrayList<>();
-//        while (!flows.isEmpty()) {
-//            Ids.add(flows.get(0).getFlowId());
-//            flows.remove(0);
-//        }
         for (flow_21141368_ZunigaTobar f : flows){
             Ids.add(f.getFlowId());
         }

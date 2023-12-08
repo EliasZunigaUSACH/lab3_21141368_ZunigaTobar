@@ -204,6 +204,7 @@ public class Main {
         int id;
         do {
             id = input.nextInt();
+            printModChatbotMenu(system);
 
         } while (id != 0);
     }
