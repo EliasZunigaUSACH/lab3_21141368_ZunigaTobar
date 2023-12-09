@@ -88,4 +88,12 @@ public class chatbot_21141368_ZunigaTobar {
         }
         return Ids;
     }
+    public flow_21141368_ZunigaTobar getFlowById(int id){
+        for (flow_21141368_ZunigaTobar flow : flows){
+            if (id == flow.getFlowId()){
+                return flow;
+            }
+        }
+        return null;
+    }
 }

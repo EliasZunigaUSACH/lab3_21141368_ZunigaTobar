@@ -4,11 +4,9 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.example.user_21141368_ZunigaTobar.getNumberByName;
-
 public class Main {
     public static void main(String[] args) {
-        //Carga de datos
+        // Carga de datos
         List<String> wordsO1 = new ArrayList<>();
         wordsO1.add("viajar");
         wordsO1.add("turistear");
@@ -135,8 +133,10 @@ public class Main {
                     System.out.print("\n");
                     break;
                 case 6:
+                    simulateMenu(system);
                     break;
                 case 7:
+                    system.systemLogout();
                     break;
                 default:
                     System.out.println(selection + " no es una opción valida! Por favor seleccione la opción correcta\n");
@@ -199,14 +199,64 @@ public class Main {
         System.out.print("\t0. Salir\n");
         System.out.print("INTRODUZCA NOMBRE DEL CHATBOT QUE DESEA MODIFICAR O ESCRIBA 0 PARA SALIR:\n");
     }
+    public static void printModChatbotOptionsMenu(system_21141368_ZunigaTobar system){
+        System.out.println("\n### Sistema de Chatbots - Modificación de chatbot ###\n");
+        System.out.print("1. Agregar flujo\n");
+        System.out.print("2. Agregar opciones a cierto flujo\n");
+        System.out.print("INTRODUZCA SU OPCIÓN:\n");
+    }
     public static void modChatbotMenu(system_21141368_ZunigaTobar system){
         Scanner input = new Scanner(System.in);
         int id;
+        printModChatbotMenu(system);
         do {
             id = input.nextInt();
-            printModChatbotMenu(system);
-
+            chatbot_21141368_ZunigaTobar chatbotToMod = system.getChatbotById(id);
+            if ((chatbotToMod == null) && id != 0){
+                System.out.println(id + " no es una opción valida! Por favor seleccione la opción correcta.\n");
+            }
+            if ((chatbotToMod != null) && id != 0){
+                modFlowMenu(chatbotToMod);
+                break;
+            }
         } while (id != 0);
+    }
+    public static void printModFlowMenu(chatbot_21141368_ZunigaTobar chatbot){
+        System.out.println("\n### Sistema de Chatbots - Agregación de opciones ###\n");
+        System.out.print("Flujos: \n");
+        for (flow_21141368_ZunigaTobar flow : chatbot.getFlows()) {
+            System.out.println("\t" + flow.getFlowId() + ". " + flow.getNameMsg() + "\n");
+        }
+        System.out.print("\t0. Salir\n");
+        System.out.print("INTRODUZCA SU OPCIÓN:\n");
+    }
+    public static void modFlowMenu(chatbot_21141368_ZunigaTobar chatbot){
+        Scanner input = new Scanner(System.in);
+        int id;
+        printModFlowMenu(chatbot);
+        do {
+            id = input.nextInt();
+            flow_21141368_ZunigaTobar flowToMod = chatbot.getFlowById(id);
+            if ((flowToMod == null) && id != 0){
+                System.out.println(id + " no es una opción valida! Por favor seleccione la opción correcta.\n");
+            }
+            if ((flowToMod != null) && id != 0){
+
+                break;
+            }
+        } while (id != 0);
+    }
+    public static void printAddOptionToFlowMenu(flow_21141368_ZunigaTobar flow){
+        System.out.println("\n### Sistema de Chatbots - Agregación de opciones ###\n");
+        System.out.print("Opciones: \n");
+        for (option_21141368_ZunigaTobar opcion : flow.getOptions()) {
+            System.out.println("\t" + opcion.getOptionId() + ". " + opcion.getMessage() + "\n");
+        }
+        System.out.print("\t0. Salir\n");
+        System.out.print("INTRODUZCA MENSAJE PARA LA NUEVA OPCION:\n");
+    }
+    public static void AddOptionToFlowMenu(flow_21141368_ZunigaTobar flow){
+
     }
     public static void printCreateChatbotMenu(){
         System.out.println("\n### Sistema de Chatbots - Creación de chatbot ###\n");
@@ -216,8 +266,21 @@ public class Main {
         Scanner input = new Scanner(System.in);
         printCreateChatbotMenu();
         int newID = input.nextInt();
-
         chatbot_21141368_ZunigaTobar newChatbot = new chatbot_21141368_ZunigaTobar(newID, );
         system.systemAddChatbot(newChatbot);
+    }
+    public static void interact(system_21141368_ZunigaTobar system){
+
+    }
+    public static void printSimulateMenu(){
+        System.out.println("\n### Sistema de Chatbots - Simulación ###\n");
+        System.out.print("INTRODUZCA CANTIDAD MÁXIMA DE INTERACCIONES:\n");
+    }
+    public static void simulateMenu(system_21141368_ZunigaTobar system){
+        Scanner input = new Scanner(System.in);
+        printSimulateMenu();
+        int number = input.nextInt();
+        int seed = system.generateRandom();
+        system.systemSimulate(number, seed, system);
     }
 }

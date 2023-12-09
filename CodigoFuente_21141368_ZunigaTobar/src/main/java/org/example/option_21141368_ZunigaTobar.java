@@ -16,8 +16,7 @@ public class option_21141368_ZunigaTobar {
     List<String> keywords;
 
     /**
-     * Método: option_21141368_ZunigaTobar
-     * Descripción: Método constructor de una opción para flujo de un chatbot. Cada opción se enlaza a un chatbot y flujo especificados por sus respectivos códigos.
+     * Constructor option_21141368_ZunigaTobar
      * @param OptionId
      * @param message
      * @param chatbotCodeLink
@@ -31,41 +30,83 @@ public class option_21141368_ZunigaTobar {
         this.initialFlowCodeLink = initialFlowCodeLink;
         this.keywords = keywords;
     }
+
+    /**
+     * Selector getOptionId
+     * @return int
+     */
     public int getOptionId() {
         return OptionId;
     }
+
+    /**
+     * Modificador setOptionId
+     * @param id
+     */
     public void setOptionId(int id) {
         this.OptionId = id;
     }
 
+    /**
+     * Selector getMessage
+     * @return String
+     */
     public String getMessage() {
         return message;
     }
 
+    /**
+     *
+     * @param message
+     */
     public void setMessage(String message) {
         this.message = message;
     }
 
+    /**
+     * Selector getChatbotCodeLink
+     * @return int
+     */
     public int getChatbotCodeLink() {
         return chatbotCodeLink;
     }
 
+    /**
+     *
+     * @param chatbotCodeLink
+     */
     public void setChatbotCodeLink(int chatbotCodeLink) {
         this.chatbotCodeLink = chatbotCodeLink;
     }
 
+    /**
+     * Selector getInitialFlowCodeLink
+     * @return int
+     */
     public int getInitialFlowCodeLink() {
         return initialFlowCodeLink;
     }
 
+    /**
+     *
+     * @param initialFlowCodeLink
+     */
     public void setInitialFlowCodeLink(int initialFlowCodeLink) {
         this.initialFlowCodeLink = initialFlowCodeLink;
     }
 
+    /**
+     * Selector getKeywords
+     * @return List<String></>
+     */
     public List<String> getKeywords() {
         return keywords;
     }
 
+    /**
+     * Modificador setKeywords
+     * @param keywords
+     */
     public void setKeywords(List<String> keywords) {
         this.keywords = keywords;
     }

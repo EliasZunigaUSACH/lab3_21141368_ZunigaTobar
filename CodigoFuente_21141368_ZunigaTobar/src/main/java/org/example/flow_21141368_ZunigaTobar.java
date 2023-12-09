@@ -14,6 +14,12 @@ public class flow_21141368_ZunigaTobar {
     String nameMsg;
     List<option_21141368_ZunigaTobar> options;
 
+    /**
+     *
+     * @param ID
+     * @param Name
+     * @param options
+     */
     public flow_21141368_ZunigaTobar(int ID, String Name, List<option_21141368_ZunigaTobar> options){
         this.flowId = ID;
         this.nameMsg = Name;
@@ -29,6 +35,10 @@ public class flow_21141368_ZunigaTobar {
         this.options = optionsFiltrados;
     }
 
+    /**
+     *
+     * @param option
+     */
     public void flowAddOption(option_21141368_ZunigaTobar option){
         List<Integer> IDs = getOptionsIds(options);
         int optionId = option.getOptionId();
@@ -37,30 +47,59 @@ public class flow_21141368_ZunigaTobar {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public int getFlowId() {
         return flowId;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setFlowId(int id) {
         this.flowId = id;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getNameMsg() {
         return nameMsg;
     }
 
+    /**
+     *
+     * @param nameMsg
+     */
     public void setNameMsg(String nameMsg) {
         this.nameMsg = nameMsg;
     }
 
+    /**
+     *
+     * @return
+     */
     public List<option_21141368_ZunigaTobar> getOptions() {
         return options;
     }
 
+    /**
+     *
+     * @param options
+     */
     public void setOptions(List<option_21141368_ZunigaTobar> options) {
         this.options = options;
     }
 
+    /**
+     *
+     * @param options
+     * @return
+     */
     public List<Integer> getOptionsIds(List<option_21141368_ZunigaTobar> options){
         List<Integer> optionsIds = new ArrayList<>();
         for (option_21141368_ZunigaTobar op : options){

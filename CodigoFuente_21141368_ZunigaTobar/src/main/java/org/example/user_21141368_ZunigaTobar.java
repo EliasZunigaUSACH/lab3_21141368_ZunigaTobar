@@ -21,7 +21,6 @@ public class user_21141368_ZunigaTobar {
         this.isAdmin = role;
         int id = getNumberByName(userName);
         this.ID = id;
-        this.historial = new ArrayList<>();
     }
 
     public String getUserName() {
@@ -62,13 +61,5 @@ public class user_21141368_ZunigaTobar {
 
     public void setAdmin(boolean admin) {
         isAdmin = admin;
-    }
-
-    public List<String> getHistorial() {
-        return historial;
-    }
-
-    public void setHistorial(List<String> historial) {
-        this.historial = historial;
     }
 }
