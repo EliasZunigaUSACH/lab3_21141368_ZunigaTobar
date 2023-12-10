@@ -9,16 +9,16 @@ package org.example;
 import java.util.ArrayList;
 import java.util.List;
 
-public class flow_21141368_ZunigaTobar {
+public class flow_21141368_ZunigaTobar implements i_flow_21141368_ZunigaTobar{
     int flowId;
     String nameMsg;
     List<option_21141368_ZunigaTobar> options;
 
     /**
-     *
-     * @param ID
-     * @param Name
-     * @param options
+     * Consturctor flow_21141368_ZunigaTobar
+     * @param ID;
+     * @param Name;
+     * @param options;
      */
     public flow_21141368_ZunigaTobar(int ID, String Name, List<option_21141368_ZunigaTobar> options){
         this.flowId = ID;
@@ -36,9 +36,10 @@ public class flow_21141368_ZunigaTobar {
     }
 
     /**
-     *
-     * @param option
+     * Modificador flowAddOption
+     * @param option;
      */
+    @Override
     public void flowAddOption(option_21141368_ZunigaTobar option){
         List<Integer> IDs = getOptionsIds(options);
         int optionId = option.getOptionId();
@@ -48,58 +49,47 @@ public class flow_21141368_ZunigaTobar {
     }
 
     /**
-     *
-     * @return
+     * Selector getFlowId
+     * @return int
      */
+    @Override
     public int getFlowId() {
         return flowId;
     }
 
     /**
-     *
-     * @param id
+     * Selector getNameMsg
+     * @return String
      */
-    public void setFlowId(int id) {
-        this.flowId = id;
-    }
-
-    /**
-     *
-     * @return
-     */
+    @Override
     public String getNameMsg() {
         return nameMsg;
     }
 
     /**
-     *
-     * @param nameMsg
+     * Selector getOptions
+     * @return List;
      */
-    public void setNameMsg(String nameMsg) {
-        this.nameMsg = nameMsg;
-    }
-
-    /**
-     *
-     * @return
-     */
+    @Override
     public List<option_21141368_ZunigaTobar> getOptions() {
         return options;
     }
 
     /**
-     *
-     * @param options
+     * Modificador setOptions
+     * @param options;
      */
+    @Override
     public void setOptions(List<option_21141368_ZunigaTobar> options) {
         this.options = options;
     }
 
     /**
-     *
-     * @param options
-     * @return
+     * Selector getOptionsIds
+     * @param options;
+     * @return List
      */
+    @Override
     public List<Integer> getOptionsIds(List<option_21141368_ZunigaTobar> options){
         List<Integer> optionsIds = new ArrayList<>();
         for (option_21141368_ZunigaTobar op : options){

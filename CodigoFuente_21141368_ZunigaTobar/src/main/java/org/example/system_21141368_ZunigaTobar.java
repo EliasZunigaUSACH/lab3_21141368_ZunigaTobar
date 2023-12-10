@@ -13,7 +13,7 @@ import java.util.Random;
 
 import static org.example.user_21141368_ZunigaTobar.getNumberByName;
 
-public class system_21141368_ZunigaTobar extends Main {
+public class system_21141368_ZunigaTobar implements i_system_21141368_ZunigaTobar{
     String name;
     List<user_21141368_ZunigaTobar> members;
     String loggedUser;

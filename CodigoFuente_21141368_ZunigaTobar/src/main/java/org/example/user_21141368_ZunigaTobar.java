@@ -10,19 +10,17 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class user_21141368_ZunigaTobar {
+public class user_21141368_ZunigaTobar implements i_user_21141368_ZunigaTobar{
     String userName;
     int ID;
     boolean isAdmin;
-    List<String> historial;
 
     public user_21141368_ZunigaTobar(String userName, boolean role) {
         this.userName = userName;
         this.isAdmin = role;
-        int id = getNumberByName(userName);
-        this.ID = id;
+        this.ID = getNumberByName(userName);
     }
-
+    @Override
     public String getUserName() {
         return userName;
     }
@@ -43,23 +41,21 @@ public class user_21141368_ZunigaTobar {
         return Integer.parseInt(userName.replaceAll("[^0-9]", ""));
     }
 
+    /**
+     * Selector getID
+     * @return int
+     */
+    @Override
     public int getID() {
         return ID;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
+    /**
+     *
+     * @return
+     */
+    @Override
     public boolean isAdmin() {
         return isAdmin;
-    }
-
-    public void setAdmin(boolean admin) {
-        isAdmin = admin;
     }
 }
