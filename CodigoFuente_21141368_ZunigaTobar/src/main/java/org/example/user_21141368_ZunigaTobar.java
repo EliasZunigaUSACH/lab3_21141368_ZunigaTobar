@@ -15,32 +15,25 @@ public class user_21141368_ZunigaTobar implements i_user_21141368_ZunigaTobar{
     int ID;
     boolean isAdmin;
 
+    /**
+     * Constructor user_21141368_ZunigaTobar
+     * @param userName;
+     * @param role;
+     */
     public user_21141368_ZunigaTobar(String userName, boolean role) {
         this.userName = userName;
         this.isAdmin = role;
-        this.ID = getNumberByName(userName);
+        this.ID = Integer.parseInt(userName.replaceAll("[^0-9]", ""));
     }
+
+    /**
+     * Selector getUserName
+     * @return String
+     */
     @Override
     public String getUserName() {
         return userName;
     }
-
-    public static boolean isNumeric(String strNum) {
-        if (strNum == null) {
-            return false;
-        }
-        try {
-            double d = Double.parseDouble(strNum);
-        } catch (NumberFormatException nfe) {
-            return false;
-        }
-        return true;
-    }
-
-    public static int getNumberByName(String userName){
-        return Integer.parseInt(userName.replaceAll("[^0-9]", ""));
-    }
-
     /**
      * Selector getID
      * @return int
@@ -51,8 +44,8 @@ public class user_21141368_ZunigaTobar implements i_user_21141368_ZunigaTobar{
     }
 
     /**
-     *
-     * @return
+     * Pertenencia isAdmin
+     * @return boolean
      */
     @Override
     public boolean isAdmin() {

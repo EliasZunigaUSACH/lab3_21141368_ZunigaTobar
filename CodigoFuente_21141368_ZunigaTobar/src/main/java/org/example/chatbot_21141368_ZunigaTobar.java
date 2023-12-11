@@ -18,11 +18,11 @@ public class chatbot_21141368_ZunigaTobar implements i_chatbot_21141368_ZunigaTo
 
     /**
      * Constructor chatbot_21141368_ZunigaTobar
-     * @param chatbotID
-     * @param name
-     * @param welcomeMessage
-     * @param startFlowId
-     * @param flows
+     * @param chatbotID;
+     * @param name;
+     * @param welcomeMessage;
+     * @param startFlowId;
+     * @param flows;
      */
     public chatbot_21141368_ZunigaTobar(int chatbotID, String name, String welcomeMessage, int startFlowId, List<flow_21141368_ZunigaTobar> flows) {
         this.chatbotID = chatbotID;
@@ -53,51 +53,47 @@ public class chatbot_21141368_ZunigaTobar implements i_chatbot_21141368_ZunigaTo
         }
     }
 
+    /**
+     * Selector getChatbotID
+     * @return int
+     */
+    @Override
     public int getChatbotID() {
         return chatbotID;
     }
 
-    public void setChatbotID(int chatbotID) {
-        this.chatbotID = chatbotID;
-    }
-
+    /**
+     * Selector getName
+     * @return String
+     */
+    @Override
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
+    /**
+     * Selector getWelcomeMessage
+     * @return String
+     */
+    @Override
     public String getWelcomeMessage() {
         return welcomeMessage;
     }
 
-    public void setWelcomeMessage(String welcomeMessage) {
-        this.welcomeMessage = welcomeMessage;
-    }
-
-    public int getStartFlowId() {
-        return startFlowId;
-    }
-
-    public void setStartFlowId(int startFlowId) {
-        this.startFlowId = startFlowId;
-    }
-
+    /**
+     * Selector getFlows
+     * @return List
+     */
+    @Override
     public List<flow_21141368_ZunigaTobar> getFlows() {
         return flows;
     }
-
-    public void setFlows(List<flow_21141368_ZunigaTobar> flows) {
-        this.flows = flows;
-    }
-
     /**
      * Selector getFlowIds
-     * @param flows
+     * @param flows;
      * @return List
      */
+    @Override
     public List<Integer> getFlowsIds(List<flow_21141368_ZunigaTobar> flows){
         List<Integer> Ids = new ArrayList<>();
         for (flow_21141368_ZunigaTobar f : flows){
@@ -108,9 +104,10 @@ public class chatbot_21141368_ZunigaTobar implements i_chatbot_21141368_ZunigaTo
 
     /**
      * Selector getFlowById
-     * @param id
+     * @param id;
      * @return flow_21141368_ZunigaTobar
      */
+    @Override
     public flow_21141368_ZunigaTobar getFlowById(int id){
         for (flow_21141368_ZunigaTobar flow : flows){
             if (id == flow.getFlowId()){
