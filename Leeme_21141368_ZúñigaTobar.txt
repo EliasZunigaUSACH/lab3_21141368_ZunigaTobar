@@ -7,4 +7,7 @@ Profesor Gonzalo Martinez
 
 -Los archivos interfaces son aquellos que empiezan con "i_" al comienzo del nombre del archivo.
 
--
+-Al momento de registrar un usuario, evitar escribir el nombre del usuario de esta forma "usuario01".
+
+-Solo se puede escribir números a la hora de decidir que hacer en el sistema (excepto si se está interactuando con un chatbot),
+ caso contrario, el programa dará error.

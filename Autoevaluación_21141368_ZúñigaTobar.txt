@@ -5,31 +5,31 @@ Profesor Gonzalo Martinez
 
 Requerimientos No Funcionales:		Puntaje:
 
-Autoevaluación				
-Lenguaje y herramientas de trabajo		
-Verisón 11 de OpenJDK									
-Documentación JavaDoc				
-Organización				
-Instrucciones con el programa
-Uso del paradigma
-Historial				
-Diagrama de análisis
-Diagrama de diseño			
-Prerrequisitos			
+Autoevaluación				1
+Lenguaje y herramientas de trabajo	1	
+Versión 11 de OpenJDK			1					
+Documentación JavaDoc			1	
+Organización				1
+Instrucciones con el programa		1
+Uso del paradigma			1
+Historial				1
+Diagrama de análisis			1
+Diagrama de diseño			1
+Prerrequisitos				0.75 No ser implementó el método system-simulate
 
 Requerimientos Funcionales:		Puntaje:
 
-TDA's					
-option					
-flow					
-flow-add-option				
-chatbot					
-chatbot-add-flow			
-system					
-system-add-chatbot			
-system-add-user				
-system-login				
-system-logout				
-system-talk				
-system-synthesis			
-system-simulate				
+TDA's					1
+option					1
+flow					1
+flow-add-option				1
+chatbot					1
+chatbot-add-flow			1
+system					1
+system-add-chatbot			1
+system-add-user				1
+system-login				1
+system-logout				1
+system-talk				0.75 No entrega algún mensaje final al terminar de interactuar
+system-synthesis			0.25 Solo devuelve el historial de interacciones del usuario conectado en ese momento
+system-simulate				0 No se logró implementar

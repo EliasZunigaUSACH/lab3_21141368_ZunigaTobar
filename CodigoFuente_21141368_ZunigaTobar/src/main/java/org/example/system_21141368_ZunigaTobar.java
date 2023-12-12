@@ -24,7 +24,6 @@ public class system_21141368_ZunigaTobar implements i_system_21141368_ZunigaToba
 
     /**
      * Constructor system_21141368_ZunigaTobar
-     *
      * @param name
      * @param initialChatbotCodeLink
      * @param chatbots
@@ -52,9 +51,9 @@ public class system_21141368_ZunigaTobar implements i_system_21141368_ZunigaToba
 
     /**
      * Modificador systemAddChatbot
-     *
      * @param chatbot;
      */
+    @Override
     public void systemAddChatbot(chatbot_21141368_ZunigaTobar chatbot) {
         List<Integer> chatbotsIds = getChatbotsIds(chatbots);
         int chatbotId = chatbot.getChatbotID();
@@ -65,9 +64,9 @@ public class system_21141368_ZunigaTobar implements i_system_21141368_ZunigaToba
 
     /**
      * Modificador systemAddUser
-     *
      * @param newUser;
      */
+    @Override
     public void systemAddUser(user_21141368_ZunigaTobar newUser) {
         if (members.isEmpty()) {
             this.members.add(newUser);
@@ -85,16 +84,14 @@ public class system_21141368_ZunigaTobar implements i_system_21141368_ZunigaToba
 
     /**
      * Modificador systemLogin
-     *
      * @param userName;
      */
+     @Override
     public void systemLogin(String userName) {
         int userID = Integer.parseInt(userName.replaceAll("[^0-9]", ""));
-        ;
         List<Integer> membersIDs = getUsersIds();
         if (membersIDs.contains(userID)) {
             setLoggedUser(userName);
-//            loadUserHistory(userName);
             System.out.println("El usuario " + userName + " ha iniciado sesión correctamente");
         } else {
             System.out.println("El usuario no está registrado en el sistema");
@@ -104,6 +101,7 @@ public class system_21141368_ZunigaTobar implements i_system_21141368_ZunigaToba
     /**
      * Modificador systemLogout
      */
+    @Override
     public void systemLogout() {
         if (!loggedUser.isEmpty()) {
             chatHistory.clear();
@@ -112,26 +110,31 @@ public class system_21141368_ZunigaTobar implements i_system_21141368_ZunigaToba
     }
 
     /**
+     * Método systemTalk
      * @param msg;
      */
+    @Override
     public void systemTalk(String msg) {
         for (chatbot_21141368_ZunigaTobar chatbot : getChatbots()) {
             if (chatbot.getChatbotID() == posicion[0]) {
                 for (flow_21141368_ZunigaTobar flow : chatbot.getFlows()) {
                     if (flow.getFlowId() == posicion[1]) {
                         for (option_21141368_ZunigaTobar opcion : flow.getOptions()) {
-                            int numMsg = Integer.parseInt(msg);
-                            if ((numMsg == opcion.getOptionId()) || (opcion.getKeywords().contains(msg.toLowerCase()))) {
-                                setPosicion(new int[]{opcion.getChatbotCodeLink(), opcion.getInitialFlowCodeLink()});
+                            if ((msg.equals(Integer.toString(opcion.getOptionId()))) || (opcion.getKeywords().contains(msg.toLowerCase()))) {
                                 chatHistory.add(msg);
-                                chatbot_21141368_ZunigaTobar actualChatbot = getChatbotById(opcion.getChatbotCodeLink());
+                                if (posicion[0] == opcion.getChatbotCodeLink() && posicion[1] == opcion.getInitialFlowCodeLink()) {
+                                    return;
+                                }
+                                int[] newPosicion = {opcion.getChatbotCodeLink(), opcion.getInitialFlowCodeLink()};
+                                setPosicion(newPosicion);
+                                chatbot_21141368_ZunigaTobar actualChatbot = getChatbotById(posicion[0]);
                                 System.out.println(actualChatbot.getName() + ": ");
-                                flow_21141368_ZunigaTobar actualFlow = actualChatbot.getFlowById(opcion.getInitialFlowCodeLink());
+                                flow_21141368_ZunigaTobar actualFlow = actualChatbot.getFlowById(posicion[1]);
                                 System.out.print(actualFlow.getNameMsg() + "\n");
-                                System.out.print(actualChatbot.getWelcomeMessage() + "\n");
                                 for (option_21141368_ZunigaTobar actualOption : actualFlow.getOptions()) {
                                     System.out.print("\t" + actualOption.getMessage() + "\n");
                                 }
+                                return;
                             }
                         }
                     }
@@ -141,37 +144,56 @@ public class system_21141368_ZunigaTobar implements i_system_21141368_ZunigaToba
     }
 
     /**
-     *
+     * Método systemSynthesis
      * @param userName;
      */
     public void systemSynthesis(String userName) {
-        int chatHisotryLength = chatHistory.size();
-        int element = 0;
-        while (element < chatHisotryLength - 1) {
-            System.out.println(userName + ": " + chatHistory.get(element) + "\n");
-            systemTalk(chatHistory.get(element));
-            element += 1;
+        if (!chatHistory.isEmpty()) {
+            int chatHisotryLength = chatHistory.size();
+            int element = 0;
+            List<String> historial = getChatHistory();
+            while (element <= chatHisotryLength - 1) {
+                String msg = historial.get(element);
+                System.out.print(userName + ": " + msg + "\n");
+                systemTalk(msg);
+                element += 1;
+            }
+        } else {
+            System.out.println("El historial está vacío\n");
         }
     }
+
+    /**
+     * Selector getName
+     * @return String
+     */
     @Override
     public String getName() {
         return name;
     }
 
+    /**
+     * Selector getMembers
+     * @return List
+     */
     @Override
     public List<user_21141368_ZunigaTobar> getMembers() {
         return members;
     }
 
+    /**
+     * Selector getLoggedUser
+     * @return String
+     */
     @Override
     public String getLoggedUser() {
         return loggedUser;
     }
-
     /**
      * Modificador setLoggedUser
      * @param loggedUser
      */
+    @Override
     public void setLoggedUser(String loggedUser) {
         this.loggedUser = loggedUser;
     }
@@ -194,6 +216,20 @@ public class system_21141368_ZunigaTobar implements i_system_21141368_ZunigaToba
         this.posicion = posicion;
     }
 
+    /**
+     * Selector getChatHsitory
+     * @return List
+     */
+    @Override
+    public List<String> getChatHistory() {
+        return chatHistory;
+    }
+
+    /**
+     * Selector getLoggedUserData
+     * @param userName
+     * @return user_21141368_ZunigaTobar
+     */
     @Override
     public user_21141368_ZunigaTobar getLoggedUserData(String userName) {
         List<user_21141368_ZunigaTobar> members = getMembers();
@@ -205,6 +241,11 @@ public class system_21141368_ZunigaTobar implements i_system_21141368_ZunigaToba
         return null;
     }
 
+    /**
+     * Selector getChatbotById
+     * @param id
+     * @return chatbot_21141368_ZunigaTobar
+     */
     @Override
     public chatbot_21141368_ZunigaTobar getChatbotById(int id) {
         for (chatbot_21141368_ZunigaTobar chatbot : chatbots) {

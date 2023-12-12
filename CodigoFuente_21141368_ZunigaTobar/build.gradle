@@ -1,5 +1,9 @@
 plugins {
-    id 'java'
+    id 'application'
+}
+
+application {
+    mainClassName = 'org.example.Main'
 }
 
 group = 'org.example'
@@ -7,6 +11,10 @@ version = '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+}
+
+run {
+    standardInput = System.in
 }
 
 dependencies {

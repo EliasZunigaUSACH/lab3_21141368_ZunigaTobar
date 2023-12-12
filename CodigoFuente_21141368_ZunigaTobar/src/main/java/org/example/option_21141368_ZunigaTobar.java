@@ -65,7 +65,7 @@ public class option_21141368_ZunigaTobar implements i_option_21141368_ZunigaToba
     }
     /**
      * Selector getKeywords
-     * @return List<String></>
+     * @return List
      */
     @Override
     public List<String> getKeywords() {
