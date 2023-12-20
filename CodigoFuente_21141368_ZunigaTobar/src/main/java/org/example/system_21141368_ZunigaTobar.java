@@ -71,9 +71,9 @@ public class system_21141368_ZunigaTobar implements i_system_21141368_ZunigaToba
         if (members.isEmpty()) {
             this.members.add(newUser);
         } else {
-            int userID = newUser.getID();
-            List<Integer> memebersIDs = getUsersIds();
-            if (!memebersIDs.contains(userID)) {
+            String user = newUser.getUserName();
+            List<String> memebers = getUsersNames();
+            if (!memebers.contains(user)) {
                 this.members.add(newUser);
                 System.out.println("Se ha registrado " + newUser.getUserName() + "\n");
             } else {
@@ -88,9 +88,8 @@ public class system_21141368_ZunigaTobar implements i_system_21141368_ZunigaToba
      */
      @Override
     public void systemLogin(String userName) {
-        int userID = Integer.parseInt(userName.replaceAll("[^0-9]", ""));
-        List<Integer> membersIDs = getUsersIds();
-        if (membersIDs.contains(userID)) {
+        List<String> members = getUsersNames();
+        if (members.contains(userName)) {
             setLoggedUser(userName);
             System.out.println("El usuario " + userName + " ha iniciado sesión correctamente");
         } else {
@@ -120,7 +119,7 @@ public class system_21141368_ZunigaTobar implements i_system_21141368_ZunigaToba
                 for (flow_21141368_ZunigaTobar flow : chatbot.getFlows()) {
                     if (flow.getFlowId() == posicion[1]) {
                         for (option_21141368_ZunigaTobar opcion : flow.getOptions()) {
-                            if ((msg.equals(Integer.toString(opcion.getOptionId()))) || (opcion.getKeywords().contains(msg.toLowerCase()))) {
+                            if ((msg.equals(Integer.toString(opcion.getOptionId()))) || (opcion.getKeywords().contains(msg))) {
                                 chatHistory.add(msg);
                                 if (posicion[0] == opcion.getChatbotCodeLink() && posicion[1] == opcion.getInitialFlowCodeLink()) {
                                     return;
@@ -208,6 +207,15 @@ public class system_21141368_ZunigaTobar implements i_system_21141368_ZunigaToba
     }
 
     /**
+     * Modificador setChatbots
+     * @param chatbots
+     */
+    @Override
+    public void setChatbots(List<chatbot_21141368_ZunigaTobar> chatbots) {
+        this.chatbots = chatbots;
+    }
+
+    /**
      * Modificador setPosicion
      * @param posicion
      */
@@ -284,12 +292,12 @@ public class system_21141368_ZunigaTobar implements i_system_21141368_ZunigaToba
      * @return List
      */
     @Override
-    public List<Integer> getUsersIds() {
+    public List<String> getUsersNames() {
         List<user_21141368_ZunigaTobar> members = getMembers();
-        List<Integer> usersIDs = new ArrayList<>();
+        List<String> usersNames = new ArrayList<>();
         for (user_21141368_ZunigaTobar user : members) {
-            usersIDs.add(user.getID());
+            usersNames.add(user.getUserName());
         }
-        return usersIDs;
+        return usersNames;
     }
 }

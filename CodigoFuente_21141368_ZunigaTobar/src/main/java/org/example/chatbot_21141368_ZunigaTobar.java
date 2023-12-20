@@ -116,4 +116,13 @@ public class chatbot_21141368_ZunigaTobar implements i_chatbot_21141368_ZunigaTo
         }
         return null;
     }
+
+    /**
+     * Modificador setFlows
+     * @param flows
+     */
+    @Override
+    public void setFlows(List<flow_21141368_ZunigaTobar> flows) {
+        this.flows = flows;
+    }
 }

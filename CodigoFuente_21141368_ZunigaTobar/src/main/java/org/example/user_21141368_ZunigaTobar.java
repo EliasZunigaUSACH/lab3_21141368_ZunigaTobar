@@ -6,13 +6,8 @@
 
 package org.example;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 public class user_21141368_ZunigaTobar implements i_user_21141368_ZunigaTobar{
     String userName;
-    int ID;
     boolean isAdmin;
 
     /**
@@ -23,7 +18,6 @@ public class user_21141368_ZunigaTobar implements i_user_21141368_ZunigaTobar{
     public user_21141368_ZunigaTobar(String userName, boolean role) {
         this.userName = userName;
         this.isAdmin = role;
-        this.ID = Integer.parseInt(userName.replaceAll("[^0-9]", ""));
     }
 
     /**
@@ -34,14 +28,7 @@ public class user_21141368_ZunigaTobar implements i_user_21141368_ZunigaTobar{
     public String getUserName() {
         return userName;
     }
-    /**
-     * Selector getID
-     * @return int
-     */
-    @Override
-    public int getID() {
-        return ID;
-    }
+
 
     /**
      * Pertenencia isAdmin

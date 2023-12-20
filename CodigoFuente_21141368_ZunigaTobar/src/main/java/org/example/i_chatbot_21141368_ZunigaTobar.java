@@ -10,4 +10,5 @@ public interface i_chatbot_21141368_ZunigaTobar {
     public List<flow_21141368_ZunigaTobar> getFlows();
     public List<Integer> getFlowsIds(List<flow_21141368_ZunigaTobar> flows);
     public flow_21141368_ZunigaTobar getFlowById(int id);
+    public void setFlows(List<flow_21141368_ZunigaTobar> flows);
 }

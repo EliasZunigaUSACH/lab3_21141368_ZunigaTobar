@@ -16,10 +16,11 @@ public interface i_system_21141368_ZunigaTobar {
     public void setLoggedUser(String loggedUser);
     public int[] getPosicion();
     public void setPosicion(int[] posicion);
+    public void setChatbots(List<chatbot_21141368_ZunigaTobar> chatbots);
     public List<String> getChatHistory();
     public user_21141368_ZunigaTobar getLoggedUserData(String userName);
     public chatbot_21141368_ZunigaTobar getChatbotById(int id);
     public List<chatbot_21141368_ZunigaTobar> getChatbots();
     public List<Integer> getChatbotsIds(List<chatbot_21141368_ZunigaTobar> chatbots);
-    public List<Integer> getUsersIds();
+    public List<String> getUsersNames();
 }

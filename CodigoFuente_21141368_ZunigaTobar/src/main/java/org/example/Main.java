@@ -6,10 +6,10 @@
 
 package org.example;
 
-import java.util.Arrays;
-import java.util.Scanner;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+
+import static java.lang.Character.isDigit;
+import static java.util.Arrays.*;
 
 public class Main{
     public static void main(String[] args) {
@@ -22,17 +22,17 @@ public class Main{
         chatbot_21141368_ZunigaTobar CB0 = new chatbot_21141368_ZunigaTobar(0, "Inicial", "Bienvenido\n¿Qué te gustaría hacer?", 1, new ArrayList<flow_21141368_ZunigaTobar>(List.of(new flow_21141368_ZunigaTobar[]{F10})));
 
         // CHATBOT 1
-        option_21141368_ZunigaTobar OP3 = new option_21141368_ZunigaTobar(1, "1) New York, USA", 1, 2, new ArrayList<String>(List.of(new String[]{"usa", "estados unidos", "new york"})));
-        option_21141368_ZunigaTobar OP4 = new option_21141368_ZunigaTobar(2, "2) París, Francia", 1, 1, new ArrayList<String>(List.of(new String[]{"paris", "eiffel"})));
-        option_21141368_ZunigaTobar OP5 = new option_21141368_ZunigaTobar(3, "3) Torres del Paine, Chile", 1, 1, new ArrayList<String>(List.of(new String[]{"chile", "torres", "paine", "torres paine", "torres del paine"})));
-        option_21141368_ZunigaTobar OP6 = new option_21141368_ZunigaTobar(4, "4) Volver", 0, 1, new ArrayList<String>(List.of(new String[]{"regresar", "salir", "volver"})));
-        option_21141368_ZunigaTobar OP7 = new option_21141368_ZunigaTobar(1, "1) Central Park", 1, 2, new ArrayList<String>(List.of(new String[]{"central", "park", "central park"})));
-        option_21141368_ZunigaTobar OP8 = new option_21141368_ZunigaTobar(2, "2) Museos", 1, 2, new ArrayList<String>(List.of(new String[]{"museo"})));
-        option_21141368_ZunigaTobar OP9 = new option_21141368_ZunigaTobar(3, "3) Ningún otro atractivo", 1, 3, new ArrayList<String>(List.of(new String[]{"museo"})));
-        option_21141368_ZunigaTobar OP10 = new option_21141368_ZunigaTobar(4, "4) Cambiar destino", 1, 1, new ArrayList<String>(List.of(new String[]{"cambiar", "volver", "salir"})));
-        option_21141368_ZunigaTobar OP11 = new option_21141368_ZunigaTobar(1, "1) Solo", 1, 3, new ArrayList<String>(List.of(new String[]{"solo"})));
-        option_21141368_ZunigaTobar OP12 = new option_21141368_ZunigaTobar(2, "2) En pareja", 1, 3, new ArrayList<String>(List.of(new String[]{"pareja"})));
-        option_21141368_ZunigaTobar OP13 = new option_21141368_ZunigaTobar(3, "3) En familia", 1, 3, new ArrayList<String>(List.of(new String[]{"familia"})));
+        option_21141368_ZunigaTobar OP3 = new option_21141368_ZunigaTobar(1, "1) New York, USA", 1, 2, new ArrayList<String>(List.of(new String[]{"USA", "Estados Unidos", "New York"})));
+        option_21141368_ZunigaTobar OP4 = new option_21141368_ZunigaTobar(2, "2) París, Francia", 1, 1, new ArrayList<String>(List.of(new String[]{"Paris", "Eiffel"})));
+        option_21141368_ZunigaTobar OP5 = new option_21141368_ZunigaTobar(3, "3) Torres del Paine, Chile", 1, 1, new ArrayList<String>(List.of(new String[]{"Chile", "Torres", "Paine", "Torres Paine", "Torres del Paine"})));
+        option_21141368_ZunigaTobar OP6 = new option_21141368_ZunigaTobar(4, "4) Volver", 0, 1, new ArrayList<String>(List.of(new String[]{"Regresar", "Salir", "Volver"})));
+        option_21141368_ZunigaTobar OP7 = new option_21141368_ZunigaTobar(1, "1) Central Park", 1, 2, new ArrayList<String>(List.of(new String[]{"Central", "Park", "Central Park"})));
+        option_21141368_ZunigaTobar OP8 = new option_21141368_ZunigaTobar(2, "2) Museos", 1, 2, new ArrayList<String>(List.of(new String[]{"Museo"})));
+        option_21141368_ZunigaTobar OP9 = new option_21141368_ZunigaTobar(3, "3) Ningún otro atractivo", 1, 3, new ArrayList<String>(List.of(new String[]{"Museo"})));
+        option_21141368_ZunigaTobar OP10 = new option_21141368_ZunigaTobar(4, "4) Cambiar destino", 1, 1, new ArrayList<String>(List.of(new String[]{"Cambiar", "Volver", "Salir"})));
+        option_21141368_ZunigaTobar OP11 = new option_21141368_ZunigaTobar(1, "1) Solo", 1, 3, new ArrayList<String>(List.of(new String[]{"Solo"})));
+        option_21141368_ZunigaTobar OP12 = new option_21141368_ZunigaTobar(2, "2) En pareja", 1, 3, new ArrayList<String>(List.of(new String[]{"Pareja"})));
+        option_21141368_ZunigaTobar OP13 = new option_21141368_ZunigaTobar(3, "3) En familia", 1, 3, new ArrayList<String>(List.of(new String[]{"Familia"})));
         option_21141368_ZunigaTobar OP14 = new option_21141368_ZunigaTobar(4, "4) En realidad quiero otro destino", 1, 1, new ArrayList<String>(List.of(new String[]{"Cambiar destino"})));
         flow_21141368_ZunigaTobar F20 = new flow_21141368_ZunigaTobar(1, "Flujo 1 Chatbot1\\n¿Dónde te Gustaría ir?", new ArrayList<option_21141368_ZunigaTobar>(List.of(new option_21141368_ZunigaTobar[]{OP3, OP4, OP5, OP6})));
         flow_21141368_ZunigaTobar F30 = new flow_21141368_ZunigaTobar(2, "Flujo 2 Chatbot1\\n¿Qué atractivos te gustaría visitar?", new ArrayList<option_21141368_ZunigaTobar>(List.of(new option_21141368_ZunigaTobar[]{OP7, OP8, OP9, OP10})));
@@ -40,9 +40,9 @@ public class Main{
         chatbot_21141368_ZunigaTobar CB1 = new chatbot_21141368_ZunigaTobar(1, "Agencia Viajes", "Bienvenido\n¿Dónde quieres viajar?", 1, new ArrayList<flow_21141368_ZunigaTobar>(List.of(new flow_21141368_ZunigaTobar[]{F20, F30, F40})));
 
         // CHATBOT 2
-        option_21141368_ZunigaTobar OP15 = new option_21141368_ZunigaTobar(1, "1) Carrera Técnica", 2, 1, new ArrayList<String>(List.of(new String[]{"técnica", "tecnica"})));
-        option_21141368_ZunigaTobar OP16 = new option_21141368_ZunigaTobar(2, "2) Postgrado", 2, 1, new ArrayList<String>(List.of(new String[]{"doctorado", "magister", "postgrado"})));
-        option_21141368_ZunigaTobar OP17 = new option_21141368_ZunigaTobar(3, "3) Volver", 0, 1, new ArrayList<String>(List.of(new String[]{"volver", "salir", "regresar"})));
+        option_21141368_ZunigaTobar OP15 = new option_21141368_ZunigaTobar(1, "1) Carrera Técnica", 2, 1, new ArrayList<String>(List.of(new String[]{"Técnica", "Tecnica"})));
+        option_21141368_ZunigaTobar OP16 = new option_21141368_ZunigaTobar(2, "2) Postgrado", 2, 1, new ArrayList<String>(List.of(new String[]{"Doctorado", "Magister", "Postgrado"})));
+        option_21141368_ZunigaTobar OP17 = new option_21141368_ZunigaTobar(3, "3) Volver", 0, 1, new ArrayList<String>(List.of(new String[]{"Regresar", "Salir", "Volver"})));
         flow_21141368_ZunigaTobar F50 = new flow_21141368_ZunigaTobar(1, "Flujo 1 Chatbot2\n¿Qué te gustaría estudiar?", new ArrayList<option_21141368_ZunigaTobar>(List.of(new option_21141368_ZunigaTobar[]{OP15, OP16, OP17})));
         chatbot_21141368_ZunigaTobar CB2 = new chatbot_21141368_ZunigaTobar(2, "Orientador Académico", "Bienvenido\n¿Qué te gustaría estudiar?", 1, new ArrayList<flow_21141368_ZunigaTobar>(List.of(new flow_21141368_ZunigaTobar[]{F50})));
 
@@ -146,7 +146,7 @@ public class Main{
                 default:
                     System.out.println(selection + " no es una opción valida! Por favor seleccione la opción correcta\n");
             }
-        } while (selection != 7);
+        } while (selection != 6);
     }
     public static void loginMenu(system_21141368_ZunigaTobar system) {
         System.out.println("\n### Sistema de Chatbots - Login ###\n");
@@ -173,17 +173,15 @@ public class Main{
                     System.out.println("\n### Sistema de Chatbots - Registro Usuario Normal ###\n");
                     System.out.print("INTRODUZCA NOMBRE DEL USUARIO NORMAL:\n");
                     userName = name.nextLine();
-                    newUser = new user_21141368_ZunigaTobar(userName.toLowerCase(), false);
+                    newUser = new user_21141368_ZunigaTobar(userName, false);
                     system.systemAddUser(newUser);
-//                System.out.print(getNumberByName(userName) + "\n");
                     break;
                 case 2:
                     System.out.println("\n### Sistema de Chatbots - Registro Usuario Administrador ###\n");
                     System.out.print("INTRODUZCA NOMBRE DEL USUARIO ADMINISTRADOR:\n");
                     userName = name.nextLine();
-                    newUser = new user_21141368_ZunigaTobar(userName.toLowerCase(), true);
+                    newUser = new user_21141368_ZunigaTobar(userName, true);
                     system.systemAddUser(newUser);
-//                System.out.print(getNumberByName(userName) + "\n");
                     break;
                 case 3:
                     break;
@@ -192,7 +190,7 @@ public class Main{
             }
         } while (role != 3);
     }
-    public static void modChatbotOptionsMenu(chatbot_21141368_ZunigaTobar chatbot){
+    public static void modChatbotOptionsMenu(system_21141368_ZunigaTobar system, chatbot_21141368_ZunigaTobar chatbot){
         Scanner input = new Scanner(System.in);
         int selection;
         do {
@@ -204,10 +202,10 @@ public class Main{
             selection = input.nextInt();
             switch (selection){
                 case 1:
-                    addFlowMenu(chatbot);
+                    addFlowMenu(system, chatbot);
                     break;
                 case 2:
-                    modFlowMenu(chatbot);
+                    modFlowMenu(system, chatbot);
                     break;
                 case 3:
                     break;
@@ -216,9 +214,10 @@ public class Main{
             }
         } while (selection != 3);
     }
-    public static void addFlowMenu(chatbot_21141368_ZunigaTobar chatbot){
+    public static void addFlowMenu(system_21141368_ZunigaTobar system, chatbot_21141368_ZunigaTobar chatbot){
         Scanner input = new Scanner(System.in);
         String nameMsg;
+        int newId;
         System.out.println("\n### Sistema de Chatbots - Agrecacion de nuevo flujo ###\n");
         System.out.print("Flujos existentes: ");
         for (flow_21141368_ZunigaTobar flow : chatbot.getFlows()) {
@@ -226,10 +225,15 @@ public class Main{
         }
         System.out.print("INTRODUZCA EL MENSAJE DE ESTE NUEVO FLUJO:\n");
         nameMsg = input.nextLine();
-        List<Integer> flowsIds = chatbot.getFlowsIds(chatbot.getFlows());
-        int newId = flowsIds.get(flowsIds.size() - 1) + 1;
+        if (chatbot.getFlows().isEmpty()){
+            newId = 1;
+        } else {
+            List<Integer> flowsIds = chatbot.getFlowsIds(chatbot.getFlows());
+            newId = flowsIds.get(flowsIds.size() - 1) + 1;
+        }
         flow_21141368_ZunigaTobar newFlow = new flow_21141368_ZunigaTobar(newId, nameMsg, new ArrayList<>());
         chatbot.chatbotAddFlow(newFlow);
+        updateSystemByChatbot(system, chatbot);
     }
     public static void modChatbotMenu(system_21141368_ZunigaTobar system){
         Scanner input = new Scanner(System.in);
@@ -247,18 +251,22 @@ public class Main{
                 System.out.println(id + " no es una opción valida! Por favor seleccione la opción correcta.\n");
             }
             if ((chatbotToMod != null) && id != -1){
-                modChatbotOptionsMenu(chatbotToMod);
+                modChatbotOptionsMenu(system, chatbotToMod);
                 break;
             }
         } while (id != -1);
     }
-    public static void modFlowMenu(chatbot_21141368_ZunigaTobar chatbot){
+    public static void modFlowMenu(system_21141368_ZunigaTobar system, chatbot_21141368_ZunigaTobar chatbot){
         Scanner input = new Scanner(System.in);
         int id;
         System.out.println("\n### Sistema de Chatbots - Agregación de opciones ###\n");
         System.out.print("Flujos: \n");
         for (flow_21141368_ZunigaTobar flow : chatbot.getFlows()) {
             System.out.print("\t" + flow.getFlowId() + ". " + flow.getNameMsg() + "\n");
+            System.out.print("\tOpciones: \n");
+            for (option_21141368_ZunigaTobar opcion : flow.getOptions()) {
+                System.out.print("\t\t" + opcion.getOptionId() + ". " + opcion.getMessage() + "\n");
+            }
         }
         System.out.print("INTRODUZCA LA ID DEL FLUJO A MODIFICAR O ESCRIBE '-1' PARA SALIR:\n");
         do {
@@ -268,31 +276,43 @@ public class Main{
                 System.out.println(id + " no es una opción valida! Por favor seleccione la opcion correcta.\n");
             }
             if ((flowToMod != null) && id != -1){
-                addOptionToFlowMenu(flowToMod);
+                addOptionToFlowMenu(system, chatbot, flowToMod);
                 break;
             }
         } while (id != -1);
     }
-    public static void addOptionToFlowMenu(flow_21141368_ZunigaTobar flow){
+    public static void addOptionToFlowMenu(system_21141368_ZunigaTobar system, chatbot_21141368_ZunigaTobar chatbot, flow_21141368_ZunigaTobar flow) {
         Scanner input = new Scanner(System.in);
         String name;
-        String words;
+        String word;
         int newChatbotCodeLink;
         int newInitialFlowCodeLink;
+        int newOptionID;
         System.out.println("\n### Sistema de Chatbots - Agregacion de opciones ###\n");
-        System.out.print("Opciones: \n");
-        for (option_21141368_ZunigaTobar opcion : flow.getOptions()) {
-            System.out.print("\t" + opcion.getOptionId() + ". " + opcion.getMessage() + "\n");
-        }
-        System.out.print("\t0. Salir\n");
         System.out.print("INTRODUZCA MENSAJE PARA LA NUEVA OPCION:\n");
         name = input.nextLine();
-        System.out.print("INTRODUZCA PALABRAS CLAVE PARA LA NUEVA OPCION DE LA SIGUIENTE FORMA:\n");
-        System.out.print("\t'hola,chao,si'\n");
-        words = input.nextLine();
-        List<String> newKeywords = new ArrayList<>(Arrays.asList(words.split(",")));
-        List<Integer> optionsIDS = flow.getOptionsIds(flow.getOptions());
-        int newOptionID = optionsIDS.get(optionsIDS.size() - 1);
+        List<String> newKeywords = new ArrayList<>();
+        do {
+            if (!newKeywords.isEmpty()) {
+                System.out.print("INTRODUZCA PALABRA CLAVE PARA LA NUEVA OPCION O ESCRIBA '0' PARA IR AL SIGUIENTE PASO:\n");
+            }
+            word = input.nextLine();
+            if (!word.contains("0")) {
+                if (newKeywords.contains(word)) {
+                    System.out.print(word + "YA ESTA ENTRE LAS PALABRAS CLAVES:\n");
+                } else {
+                    newKeywords.add(word);
+                }
+            } else {
+                break;
+            }
+        } while (!word.contains("0"));
+        if (flow.getOptions().isEmpty()){
+            newOptionID = 1;
+        } else {
+            List<Integer> optionsIDS = flow.getOptionsIds(flow.getOptions());
+            newOptionID = optionsIDS.get(optionsIDS.size() - 1);
+        }
         String finalName = newOptionID + ") " + name;
         System.out.print("INTRODUZCA LA ID DEL CHATBOT QUE DESEA CONECTAR LA OPCION:\n");
         newChatbotCodeLink = input.nextInt();
@@ -300,6 +320,7 @@ public class Main{
         newInitialFlowCodeLink = input.nextInt();
         option_21141368_ZunigaTobar newOption = new option_21141368_ZunigaTobar(newOptionID, finalName, newChatbotCodeLink, newInitialFlowCodeLink, newKeywords);
         flow.flowAddOption(newOption);
+        updateSystemByFlow(system, chatbot, flow);
     }
     public static void createChatbotMenu(system_21141368_ZunigaTobar system){
         Scanner input = new Scanner(System.in);
@@ -319,7 +340,7 @@ public class Main{
         Scanner input = new Scanner(System.in);
         int selection;
         do {
-            System.out.println("\n### Sistema de Chatbots - Creacion de chatbot ###\n");
+            System.out.println("\n### Sistema de Chatbots - Menú de usuario normal ###\n");
             System.out.print("1. Interactuar con un chatbot\n");
             System.out.print("2. Consultar síntesis\n");
             System.out.print("3. Salir\n");
@@ -362,5 +383,35 @@ public class Main{
                 return;
             }
         } while (!msg.equals("0"));
+    }
+
+    public static void updateSystemByFlow(system_21141368_ZunigaTobar system, chatbot_21141368_ZunigaTobar chatbotToUpgrade, flow_21141368_ZunigaTobar updatedFlow){
+        List<flow_21141368_ZunigaTobar> flows = chatbotToUpgrade.getFlows();
+        for (flow_21141368_ZunigaTobar flow : flows){
+            if (flow.getFlowId() == updatedFlow.getFlowId()){
+                flows.remove(flow);
+                flows.add(updatedFlow);
+            }
+        }
+        chatbotToUpgrade.setFlows(flows);
+        List<chatbot_21141368_ZunigaTobar> chatbots = system.getChatbots();
+        for (chatbot_21141368_ZunigaTobar chatbot : chatbots){
+            if (chatbot.getChatbotID() == chatbotToUpgrade.getChatbotID()){
+                chatbots.remove(chatbot);
+                chatbots.add(chatbotToUpgrade);
+            }
+        }
+        system.setChatbots(chatbots);
+    }
+
+    public static void updateSystemByChatbot(system_21141368_ZunigaTobar system, chatbot_21141368_ZunigaTobar updatedChatbot){
+        List<chatbot_21141368_ZunigaTobar> chatbots = system.getChatbots();
+        for (chatbot_21141368_ZunigaTobar chatbot : chatbots){
+            if (chatbot.getChatbotID() == updatedChatbot.getChatbotID()){
+                chatbots.remove(chatbot);
+                chatbots.add(updatedChatbot);
+            }
+        }
+        system.setChatbots(chatbots);
     }
 }
