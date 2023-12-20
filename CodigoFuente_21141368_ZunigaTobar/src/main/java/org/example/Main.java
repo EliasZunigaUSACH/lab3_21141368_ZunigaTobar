@@ -8,9 +8,6 @@ package org.example;
 
 import java.util.*;
 
-import static java.lang.Character.isDigit;
-import static java.util.Arrays.*;
-
 public class Main{
     public static void main(String[] args) {
         // Carga de datos
@@ -61,7 +58,7 @@ public class Main{
             System.out.print("1. Login de Usuario\n");
             System.out.print("2. Registro de Usuario\n");
             System.out.print("3. Salir\n");
-            System.out.print("INTRODUZCA SU OPCIÓN:\n");
+            System.out.print("INTRODUZCA SU OPCION:\n");
             choice = input.nextInt();
 
             switch (choice) {
@@ -90,7 +87,7 @@ public class Main{
                     System.exit(0);
                     break;
                 default:
-                    System.out.println(choice + " no es una opción valida! Por favor seleccione la opción correcta\n");
+                    System.out.println(choice + " no es una opcion valida! Por favor seleccione la opción correcta\n");
             }
         } while (choice != MENU_EXIT_OPTION);
     }
@@ -106,7 +103,7 @@ public class Main{
             System.out.print("4. Visualizar todos los chatbots existentes en el sistema\n");
             System.out.print("5. Visualizar todos los chatbots con sus flujos y opciones creadas\n");
             System.out.print("6. Salir\n");
-            System.out.print("INTRODUZCA SU OPCIÓN:\n");
+            System.out.print("INTRODUZCA SU OPCION:\n");
             selection = input.nextInt();
             switch (selection) {
                 case 1:
@@ -144,7 +141,7 @@ public class Main{
                     system.systemLogout();
                     break;
                 default:
-                    System.out.println(selection + " no es una opción valida! Por favor seleccione la opción correcta\n");
+                    System.out.println(selection + " no es una opcion valida! Por favor seleccione la opción correcta\n");
             }
         } while (selection != 6);
     }
@@ -166,7 +163,7 @@ public class Main{
             System.out.print("1. Registrar usuario normal\n");
             System.out.print("2. Registrar usuario administrador\n");
             System.out.print("3. Salir\n");
-            System.out.print("INTRODUZCA SU OPCIÓN:\n");
+            System.out.print("INTRODUZCA SU OPCION:\n");
             role = input.nextInt();
             switch (role) {
                 case 1:
@@ -186,7 +183,7 @@ public class Main{
                 case 3:
                     break;
                 default:
-                    System.out.println(role + " no es una opción valida! Por favor seleccione la opción correcta.\n");
+                    System.out.println(role + " no es una opción valida! Por favor seleccione la opcion correcta.\n");
             }
         } while (role != 3);
     }
@@ -194,11 +191,11 @@ public class Main{
         Scanner input = new Scanner(System.in);
         int selection;
         do {
-            System.out.println("\n### Sistema de Chatbots - Modificación de chatbot ###\n");
+            System.out.println("\n### Sistema de Chatbots - Modificacion de chatbot ###\n");
             System.out.print("1. Agregar flujo\n");
             System.out.print("2. Agregar opciones a cierto flujo\n");
             System.out.print("3. Salir\n");
-            System.out.print("INTRODUZCA SU OPCIÓN:\n");
+            System.out.print("INTRODUZCA SU OPCION:\n");
             selection = input.nextInt();
             switch (selection){
                 case 1:
@@ -210,7 +207,7 @@ public class Main{
                 case 3:
                     break;
                 default:
-                    System.out.println(selection + " no es una opción valida! Por favor seleccione la opción correcta.\n");
+                    System.out.println(selection + " no es una opcion valida! Por favor seleccione la opción correcta.\n");
             }
         } while (selection != 3);
     }
@@ -273,7 +270,7 @@ public class Main{
             id = input.nextInt();
             flow_21141368_ZunigaTobar flowToMod = chatbot.getFlowById(id);
             if ((flowToMod == null) && id != -1){
-                System.out.println(id + " no es una opción valida! Por favor seleccione la opcion correcta.\n");
+                System.out.println(id + " no es una opcion valida! Por favor seleccione la opcion correcta.\n");
             }
             if ((flowToMod != null) && id != -1){
                 addOptionToFlowMenu(system, chatbot, flowToMod);
@@ -289,12 +286,14 @@ public class Main{
         int newInitialFlowCodeLink;
         int newOptionID;
         System.out.println("\n### Sistema de Chatbots - Agregacion de opciones ###\n");
-        System.out.print("INTRODUZCA MENSAJE PARA LA NUEVA OPCION:\n");
+        System.out.print("INTRODUZCA NOMBRE PARA LA NUEVA OPCION:\n");
         name = input.nextLine();
         List<String> newKeywords = new ArrayList<>();
         do {
             if (!newKeywords.isEmpty()) {
                 System.out.print("INTRODUZCA PALABRA CLAVE PARA LA NUEVA OPCION O ESCRIBA '0' PARA IR AL SIGUIENTE PASO:\n");
+            } else {
+                System.out.print("INTRODUZCA PALABRA CLAVE PARA LA NUEVA OPCION:\n");
             }
             word = input.nextLine();
             if (!word.contains("0")) {
